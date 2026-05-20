@@ -13,9 +13,13 @@ export default defineConfig({
       title: 'AI Apps on Microsoft Azure – Advanced Specialization',
       description:
         'Partner enablement guide for the AI Applications on Microsoft Azure Advanced Specialization audit.',
-      social: {
-        github: process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO',
-      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO',
+        },
+      ],
       sidebar: [
         { label: 'Home', link: '/' },
         { label: 'Overview', link: '/overview/' },
@@ -23,11 +27,11 @@ export default defineConfig({
         { label: 'Audit Process', link: '/audit-process/' },
         {
           label: 'Module A – General Requirements',
-          autogenerate: { directory: 'module-a' },
+          items: [{ autogenerate: { directory: 'module-a' } }],
         },
         {
           label: 'Module B – AI Apps Specific',
-          autogenerate: { directory: 'module-b' },
+          items: [{ autogenerate: { directory: 'module-b' } }],
         },
         { label: 'Evidence Tracker', link: '/evidence-tracker/' },
         { label: 'FAQ', link: '/faq/' },

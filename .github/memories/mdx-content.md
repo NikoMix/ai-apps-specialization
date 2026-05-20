@@ -4,6 +4,22 @@
 
 This repository's documentation pages follow a **strict template** for control pages so that the Engagement Agent and the auto-generated GitHub Issues stay synchronised. Follow these rules whenever editing or creating MDX files.
 
+## ⚠️ MDX syntax gotchas
+
+MDX 3 (Astro 5 / Starlight) parses `<` followed by a letter, digit, or space as the start of a JSX tag. This breaks the build with `Unexpected character '...' before name`.
+
+**Always escape these patterns:**
+
+| ❌ Wrong | ✅ Right |
+|---|---|
+| `target <2 business days` | `target &lt; 2 business days` |
+| `latency <100ms` | `latency &lt; 100ms` |
+| `<6 months coverage` | `&lt; 6 months coverage` |
+| `if x < 5 then` (in prose) | `if x &lt; 5 then` |
+| `&` standalone in prose | `&amp;` |
+
+Inside fenced code blocks (` ``` `) characters are NOT parsed as MDX — so you don't need to escape there.
+
 ## Control page template (Module A / Module B)
 
 Every file in `src/content/docs/module-a/` and `src/content/docs/module-b/` must follow this exact structure:
