@@ -53,29 +53,31 @@ Enter the year of the next audit (e.g. `2027`). This creates 13 labelled issues 
 
 ## 🤖 Engagement Agent
 
-The Engagement Agent guides consultants interactively — answering questions about requirements,
-recommending next steps, and identifying blockers, based on the repository content and live issue status.
+This repo ships with a **GitHub Custom Agent** — a purpose-built Copilot agent that knows every audit control, evidence requirement, and common blocker for this specialization.
 
-### Option A: GitHub Copilot Chat (zero setup)
+### Using the Engagement Agent on GitHub.com
 
-The repo includes `.github/copilot-instructions.md` which makes **GitHub Copilot Chat**
-aware of the engagement context automatically. Open Copilot Chat on github.com, in VS Code,
-or on mobile and ask:
+1. Go to **github.com/copilot** (or open Copilot in your repo)
+2. Click the agent selector dropdown
+3. Choose **Engagement Agent**
+4. Ask anything:
 
-> "What should we work on next for the AI Apps specialization audit?"
+> *"What should we work on first?"*
+> *"What evidence do we need for A.2.2?"*
+> *"We only have 2 DPOR-linked customers — what are our options?"*
+> *"Our DP-420 cert holder just left — what do we do?"*
 
-### Option B: Standalone CLI Agent
+The agent reads the repository documentation and open GitHub Issues to give you contextual, step-by-step guidance.
 
-```bash
-cd agent
-pip install -r requirements.txt
+### Using the Engagement Agent in VS Code
 
-# Uses GitHub Models — free with your GitHub token
-export GITHUB_TOKEN=$(gh auth token)
-python engagement-agent.py
-```
+The agent is also available in **VS Code Copilot Chat** once the repo is open — select it from the agent dropdown in the Copilot Chat panel.
 
-See [`agent/README.md`](agent/README.md) for full documentation and Azure OpenAI configuration.
+### Assigning the agent to an issue
+
+You can assign the Engagement Agent to a GitHub Issue directly — it will read the control checklist, search the docs, and prescribe the next action.
+
+The agent profile is defined in [`.github/agents/engagement-agent.agent.md`](.github/agents/engagement-agent.agent.md).
 
 ---
 
@@ -102,15 +104,14 @@ npm run dev
 
 ```
 ├── .github/
-│   ├── copilot-instructions.md      # Copilot Chat engagement context
-│   ├── scripts/create-issues.sh    # Issue creation script
+│   ├── agents/
+│   │   └── engagement-agent.agent.md  # GitHub Custom Agent definition
+│   ├── copilot-instructions.md        # Copilot Chat base context
+│   ├── scripts/create-issues.sh       # Issue creation script
 │   └── workflows/
-│       ├── deploy.yml               # Build & deploy to GitHub Pages
-│       └── create-issues.yml        # Annual issue creation
-├── agent/
-│   ├── engagement-agent.py          # Interactive CLI agent
-│   ├── requirements.txt
-│   └── README.md
+│       ├── deploy.yml                  # Build & deploy to GitHub Pages
+│       ├── create-issues.yml           # Annual issue creation
+│       └── copilot-setup-steps.yml     # Copilot coding agent environment
 └── src/content/docs/
     ├── index.mdx / overview.mdx / requirements.mdx / ...
     ├── module-a/                    # Controls A.1.1 – A.3.3

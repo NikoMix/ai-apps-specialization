@@ -6,8 +6,8 @@
 #
 # Environment variables expected:
 #   GH_TOKEN     - GitHub token with issues:write permission
-#   CYCLE_LABEL  - e.g. "audit-2027"
-#   MILESTONE    - milestone number
+#   CYCLE_LABEL  - e.g. "audit-2026"
+#   MILESTONE    - milestone title (e.g. "Audit 2026") — passed by title for safety
 #   REPO         - owner/repo
 
 set -euo pipefail
@@ -19,15 +19,16 @@ create_issue() {
   local labels="$2"
   local body="$3"
 
-  # Skip if an issue with this exact title already exists (open OR closed)
+  # Dedup check: list all issues with this cycle's label and compare titles locally.
+  # Avoids the Search API (which can return stale or filtered results on private repos).
   local existing
   existing=$(gh issue list \
     --repo "$REPO" \
     --state all \
-    --search "\"$title\" in:title" \
     --label "$CYCLE_LABEL" \
-    --json number \
-    --jq 'length')
+    --limit 200 \
+    --json title \
+    --jq "[.[] | select(.title == \"$title\")] | length")
 
   if [ "${existing:-0}" -gt 0 ]; then
     echo "⏭  Skipping (exists): $title"
