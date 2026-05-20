@@ -1,0 +1,15 @@
+{
+  "name": "ai-apps-on-microsoft-azure-specialization",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Partner enablement content for the AI Applications on Microsoft Azure Advanced Specialization audit",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.32.0",
+    "astro": "^5.0.0"
+  }
+}

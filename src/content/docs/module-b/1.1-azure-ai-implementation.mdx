@@ -1,0 +1,114 @@
+---
+title: "B.1.1 – Azure AI Implementation Capability"
+description: Evidence requirements for control B.1.1 – technical capability to design and deliver AI solutions on Azure.
+sidebar:
+  label: "1.1 Azure AI Implementation"
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## What the Auditor Checks
+
+The auditor verifies that your organisation has **demonstrated technical capability** in designing and delivering AI-powered applications on Microsoft Azure — not just knowledge, but practical delivery experience.
+
+**Typical questions:**
+- Can you demonstrate AI solution delivery on Azure with real customers?
+- What Azure AI services has your team used in production?
+- Do you have reference architectures and delivery assets?
+
+---
+
+## Required Evidence Checklist
+
+| # | Evidence Item | Accepted Formats | Status |
+|---|---|---|---|
+| 1 | **Solution case studies** (at least 2, AI on Azure focused) | PDF, PowerPoint | ⬜ |
+| 2 | **Architecture diagrams** from delivered AI solutions | PDF, Visio, Draw.io | ⬜ |
+| 3 | **Service capability statement** listing Azure AI services your team delivers | PDF, Word | ⬜ |
+| 4 | **Sample deliverables** — e.g., HLD, LLD, deployment guide, runbook (anonymised) | PDF, Word | ⬜ |
+| 5 | **Azure AI service list** — specific services used in production (with customer mapping) | PDF, Excel | ⬜ |
+
+<Aside type="tip">
+  Case studies should explicitly reference the Azure AI services used (e.g., Azure OpenAI, Azure AI
+  Search, Azure Machine Learning). Generic "AI project" descriptions without Azure service references
+  are weak evidence.
+</Aside>
+
+---
+
+## Evidence Guidance
+
+### Case Study Structure
+
+Each case study should include:
+
+```markdown
+## Customer: [Customer A / Full name with consent]
+**Industry:** [e.g., Financial Services]
+**Challenge:** [Brief description of the business problem]
+**Solution:**
+- Azure services used: [Azure OpenAI, Azure AI Search, AKS, Azure SQL...]
+- Architecture overview: [2–3 sentences]
+- Integration points: [e.g., integrated with Dynamics 365, Power Platform...]
+**Outcome:**
+- Business outcome: [e.g., 40% reduction in manual processing time]
+- Technical metrics: [e.g., <2s inference latency at 99th percentile]
+**Delivery timeline:** [e.g., 16 weeks from kickoff to go-live]
+**Your team's role:** [Lead architect + delivery management / Implementation partner]
+```
+
+### Architecture Diagrams
+
+Diagrams should clearly show:
+- Azure AI services (OpenAI, AI Search, ML Studio, etc.)
+- Data flow between components
+- Integration with existing customer systems
+- Security and identity components (Entra ID, Key Vault, Private Endpoints)
+
+**Tools:** Microsoft Visio, draw.io, Lucidchart, Azure Architecture Center templates.
+
+### Capability Statement
+
+A 1–2 page document listing:
+- Azure AI services your team is qualified to deliver
+- Number of completed projects per service area
+- Key team members and their relevant certifications
+- Partner competencies and designations
+
+---
+
+## Azure AI Services Reference
+
+Include evidence covering services from the eligible strategic pillars:
+
+| Pillar | Key Services |
+|---|---|
+| Azure OpenAI | GPT-4o, GPT-4, Embeddings, DALL-E |
+| Rest of Azure AI | Azure AI Search, Azure AI Document Intelligence, Azure AI Vision, Azure AI Speech, Azure AI Language |
+| Azure Machine Learning | Automated ML, Designer, MLOps pipelines |
+| 3P GPU | NVIDIA GPU workloads on Azure NC/ND series VMs |
+
+---
+
+## Evidence Status
+
+| Evidence Item | Owner | Due Date | Status | Notes |
+|---|---|---|---|---|
+| Case study 1 | | | ⬜ | |
+| Case study 2 | | | ⬜ | |
+| Architecture diagram 1 | | | ⬜ | |
+| Architecture diagram 2 | | | ⬜ | |
+| Capability statement | | | ⬜ | |
+| Sample deliverables (anonymised) | | | ⬜ | |
+
+---
+
+## Common Gaps
+
+| Gap | Remediation |
+|---|---|
+| Case studies exist but don't mention Azure services | Rewrite or annotate to explicitly list the Azure services used |
+| All case studies are from one industry | Identify a customer from a different industry — even a small PoC counts |
+| Architecture diagrams are high-level only | Add a more detailed view showing Azure service connections and data flows |
+| No referenceable customer outcomes | Use internally measurable outcomes (e.g., cost savings, time savings) if customer KPIs aren't available |

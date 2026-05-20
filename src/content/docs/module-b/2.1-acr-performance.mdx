@@ -1,0 +1,115 @@
+---
+title: "B.2.1 – ACR Performance"
+description: Evidence requirements for control B.2.1 – Azure Consumed Revenue across the three required pillars.
+sidebar:
+  label: "2.1 ACR Performance"
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## What the Auditor Checks
+
+The auditor verifies that your organisation generates **$15,000 USD of Azure Consumed Revenue (ACR) per qualifying pillar** across three independent pillars, measured over the last three months.
+
+**Typical questions:**
+- Can you show Partner Center ACR reports for the last three months?
+- Are the three pillars individually above the $15,000 threshold?
+- Are the ACR figures associated via eligible partner types (DPOR, PAL, CSP)?
+
+<Aside type="caution">
+  ACR data in Partner Center lags by **2–4 weeks**. Confirm exact figures with your PDM, especially
+  if you are close to the thresholds.
+</Aside>
+
+---
+
+## Required Evidence Checklist
+
+| # | Evidence Item | Accepted Formats | Status |
+|---|---|---|---|
+| 1 | **Partner Center ACR export** — last 3 months, all pillars | PDF, Excel (exported) | ⬜ |
+| 2 | **Pillar breakdown annotation** — annotated to show which services fall in each pillar | PDF, Excel | ⬜ |
+| 3 | **Association type evidence** — showing DPOR, PAL, or CSP links | PDF, Screenshot | ⬜ |
+| 4 | **PDM-confirmed ACR summary** *(optional but recommended if near threshold)* | Email, PDF | ⬜ |
+
+---
+
+## ACR Pillar Reference
+
+### Pillar 1 – AI Services (Target: ≥$15,000)
+
+| Strategic Pillar | Eligible Services |
+|---|---|
+| Azure OpenAI | Azure OpenAI Service (all models) |
+| Rest of Azure AI | Azure AI Search, Document Intelligence, Vision, Speech, Language, Translator |
+| 3P GPU | NVIDIA A100/H100 GPU VMs (NC/ND series), Marketplace GPU workloads |
+| Microsoft Foundry | Azure AI Foundry platform services |
+
+### Pillar 2 – Application Platform (Target: ≥$15,000)
+
+| Strategic Pillar | Eligible Services |
+|---|---|
+| App Platform Services | Azure App Service, Azure Logic Apps, APIM, Azure Functions |
+| Container Services | Azure Kubernetes Service (AKS), Azure Container Apps (ACA), Azure Red Hat OpenShift (ARO) |
+| Serverless and Supporting | Azure Functions, Azure Managed Redis |
+| Integration Services | Azure API Management, Azure Logic Apps |
+| Developer Services and Platform | GitHub (all plans) |
+| GitHub Copilot | GitHub Copilot for Business / Enterprise |
+
+### Pillar 3 – Data Platform (Target: ≥$15,000)
+
+| Strategic Pillar | Eligible Services |
+|---|---|
+| Modern DB | Azure Cosmos DB, Azure SQL Hyperscale (Cosmos DB for PostgreSQL) |
+| MySQL and PostgreSQL PaaS | Azure Database for MySQL (PaaS), Azure Database for PostgreSQL (PaaS) |
+| Azure SQL Core | Azure SQL Database (all tiers) |
+| Fabric F SKU | Microsoft Fabric (F SKU capacity) |
+
+---
+
+## How to Export ACR Data from Partner Center
+
+1. Navigate to **Partner Center → Insights → Azure Revenue**
+2. Set date range to the last 3 full months (e.g., Feb 1 – Apr 30)
+3. Export to Excel / download the report
+4. Filter or annotate by service to show pillar alignment
+5. Highlight the total per pillar
+
+<Aside type="tip">
+  Use the **"Revenue by Customer"** view to identify unique customer contributions simultaneously —
+  this saves time when preparing evidence for B.2.2 (Customer Diversity) as well.
+</Aside>
+
+---
+
+## Pillar ACR Summary Table
+
+Use this table to track your progress against thresholds:
+
+| Pillar | 3-Month ACR (USD) | Target | Status | Gap |
+|---|---|---|---|---|
+| AI Services | $0 | $15,000 | ⬜ | $15,000 |
+| Application Platform | $0 | $15,000 | ⬜ | $15,000 |
+| Data Platform | $0 | $15,000 | ⬜ | $15,000 |
+
+---
+
+## Evidence Status
+
+| Evidence Item | Owner | Due Date | Status | Notes |
+|---|---|---|---|---|
+| Partner Center ACR export | | | ⬜ | |
+| Pillar breakdown annotation | | | ⬜ | |
+| Association type evidence | | | ⬜ | |
+
+---
+
+## Common Gaps
+
+| Gap | Remediation |
+|---|---|
+| ACR below threshold in one pillar | Discuss with PDM whether any eligible services are miscategorised; consider accelerating customer workloads |
+| Association type missing for some subscriptions | Work with the customer to establish DPOR or PAL links immediately |
+| ACR report doesn't show service-level breakdown | Request a detailed report from PDM or use the Insights API |
+| Revenue near threshold ($13K–$15K) | Confirm with PDM — Partner Center may lag and actual figures may be higher |
