@@ -18,46 +18,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout content repo
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: content
-
-      # Clone the private theme repo using a PAT stored as a secret.
-      # 1. Create a fine-grained PAT with "Contents: Read" on the theme repo.
-      # 2. Add it to this repo's secrets as THEME_REPO_TOKEN.
-      - name: Checkout theme repo
-        uses: actions/checkout@v4
-        with:
-          repository: YOUR_ORG/YOUR_THEME_REPO
-          token: ${{ secrets.THEME_REPO_TOKEN }}
-          path: theme
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: theme/package-lock.json
 
-      - name: Install theme dependencies
-        working-directory: theme
+      - name: Install dependencies
         run: npm ci
 
-      # Merge content into the theme's docs directory.
-      # The theme must expose src/content/docs/ for MDX pages.
-      - name: Copy MDX content into theme
-        run: |
-          cp -r content/src/content/docs/. theme/src/content/docs/
-
       - name: Build site
-        working-directory: theme
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: theme/dist
+          path: dist
 
   deploy:
     needs: build

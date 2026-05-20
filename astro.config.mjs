@@ -1,21 +1,25 @@
-// Local development config.
-// In CI, the workflow clones the private theme repo and uses its astro.config.mjs instead.
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+// When deploying to GitHub Pages, set the SITE env variable to your Pages URL,
+// e.g. https://YOUR_ORG.github.io/YOUR_REPO_NAME
+// GitHub Actions: add a repo variable ASTRO_SITE or hard-code below.
+const site = process.env.ASTRO_SITE ?? 'https://example.github.io/ai-apps-specialization';
+
 export default defineConfig({
+  site,
   integrations: [
     starlight({
       title: 'AI Apps on Microsoft Azure – Advanced Specialization',
       description:
         'Partner enablement guide for the AI Applications on Microsoft Azure Advanced Specialization audit.',
-      logo: {
-        alt: 'Microsoft Partner',
-        src: './src/assets/logo.svg',
-      },
-      social: {
-        github: 'https://github.com/YOUR_ORG/YOUR_CONTENT_REPO',
-      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO',
+        },
+      ],
       sidebar: [
         { label: 'Home', link: '/' },
         { label: 'Overview', link: '/overview/' },
@@ -33,7 +37,9 @@ export default defineConfig({
         { label: 'FAQ', link: '/faq/' },
       ],
       editLink: {
-        baseUrl: 'https://github.com/YOUR_ORG/YOUR_CONTENT_REPO/edit/main/',
+        baseUrl:
+          (process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO') +
+          '/edit/main/',
       },
     }),
   ],

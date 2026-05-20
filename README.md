@@ -1,110 +1,121 @@
 # AI Applications on Microsoft Azure — Advanced Specialization
 
-> Partner enablement guide for the **AI Applications on Microsoft Azure** Advanced Specialization audit.  
-> This repo contains **only MDX content** — theming is handled by a separate private Astro/Starlight theme repo.
+> Engagement toolkit for Microsoft partners pursuing the **AI Applications on Microsoft Azure Advanced Specialization** audit.
 
 ---
 
 ## 🎯 Purpose
 
-This repository gives Microsoft partners a structured, step-by-step engagement guide to achieve the **AI Applications on Microsoft Azure Advanced Specialization**. It contains:
+This repository gives consultants a structured, step-by-step engagement framework to guide partner organisations through the Advanced Specialization audit. It includes:
 
-- Pre-qualification requirements checklist
-- Audit process overview
-- Per-control evidence templates (Module A & Module B)
-- An evidence tracker to manage progress across your engagement
+- **GitHub Issues** as the primary engagement task board — one issue per control with evidence checklists
+- **Documentation site** (Astro/Starlight) with detailed evidence guidance for each control
+- **Engagement Agent** — an AI assistant that guides consultants through the process
+- **Automated issue creation** — recreates audit issues each year, 9 months before the next audit
 
 ---
 
-## 🚀 Getting Started (Forking this repo)
+## 🚀 Getting Started
 
-### 1. Fork this repository
+This repo is a **GitHub Template**. Click **"Use this template"** (not Fork) to create your own copy.
 
-Click **Fork** in the top-right corner of this page and create it in your GitHub organisation.
+### 1. Use this template
 
-### 2. Enable GitHub Pages
+Click **Use this template → Create a new repository** and choose your GitHub organisation.
 
-Go to your fork → **Settings → Pages → Source** → select **GitHub Actions**.
+### 2. Set your site URL
 
-### 3. Create a PAT for the theme repo
+In `astro.config.mjs`, the site URL is read from the `ASTRO_SITE` environment variable.
+Add it as a **repository variable** (not a secret):
 
-The site is built using a private Astro/Starlight theme repo. You need read access to it:
+- Go to your repo → **Settings → Secrets and variables → Actions → Variables**
+- Add variable `ASTRO_SITE` = `https://YOUR_ORG.github.io/YOUR_REPO_NAME`
 
-1. Ask your theme repo owner to invite you as a collaborator (or provide a PAT).
-2. Create a **fine-grained Personal Access Token** with **Contents: Read** scoped to the theme repo.
-3. In your fork → **Settings → Secrets and variables → Actions**, create a secret named:
+Optionally also add `ASTRO_GITHUB_URL` = `https://github.com/YOUR_ORG/YOUR_REPO_NAME`.
 
+### 3. Enable GitHub Pages
+
+Go to your repo → **Settings → Pages → Source** → select **GitHub Actions**.
+
+### 4. Create the engagement issues
+
+Go to **Actions → Create Audit Engagement Issues → Run workflow**.
+
+Enter the year of the next audit (e.g. `2027`). This creates 13 labelled issues and a milestone.
+
+### 5. Done
+
+- Issues appear as your engagement task board 📋
+- The documentation site deploys automatically on push to `main` 🌐
+- Use the Engagement Agent for guided assistance 🤖
+
+---
+
+## 🤖 Engagement Agent
+
+The Engagement Agent guides consultants interactively — answering questions about requirements,
+recommending next steps, and identifying blockers, based on the repository content and live issue status.
+
+### Option A: GitHub Copilot Chat (zero setup)
+
+The repo includes `.github/copilot-instructions.md` which makes **GitHub Copilot Chat**
+aware of the engagement context automatically. Open Copilot Chat on github.com, in VS Code,
+or on mobile and ask:
+
+> "What should we work on next for the AI Apps specialization audit?"
+
+### Option B: Standalone CLI Agent
+
+```bash
+cd agent
+pip install -r requirements.txt
+
+# Uses GitHub Models — free with your GitHub token
+export GITHUB_TOKEN=$(gh auth token)
+python engagement-agent.py
 ```
-THEME_REPO_TOKEN
-```
 
-and paste the PAT as its value.
+See [`agent/README.md`](agent/README.md) for full documentation and Azure OpenAI configuration.
 
-### 4. Update placeholders
+---
 
-In `.github/workflows/deploy.yml`, replace:
+## 📅 Annual Audit Cycle
 
-| Placeholder | Replace with |
-|---|---|
-| `YOUR_ORG/YOUR_THEME_REPO` | The org/repo of the Astro theme (e.g. `contoso/astro-ms-partner-theme`) |
+The `Create Audit Engagement Issues` workflow runs automatically on a **schedule** (default: March 1st each year) to create a fresh set of issues for the next audit cycle, 9 months after the previous audit — giving your team 3 months to re-collect evidence.
 
-In `astro.config.mjs`, replace:
-
-| Placeholder | Replace with |
-|---|---|
-| `YOUR_ORG/YOUR_CONTENT_REPO` | Your fork's full repo name |
-
-### 5. Push to `main` — the site deploys automatically
-
-The GitHub Actions workflow clones the theme, copies your MDX content into it, builds the Astro site, and deploys to GitHub Pages.
+To adjust the schedule to match your audit timing:
+- Open `.github/workflows/create-issues.yml`
+- Change the cron month: `0 9 1 **3** *` → your audit month + 9
 
 ---
 
 ## 🖥️ Local Development
-
-For a local preview (uses the stub `astro.config.mjs` in this repo):
 
 ```bash
 npm install
 npm run dev
 ```
 
-> **Note:** The local preview uses Starlight directly from `node_modules`. The deployed site uses the private theme repo, which may have a custom look and feel.
-
 ---
 
-## 📁 Content Structure
+## 📁 Structure
 
 ```
-src/content/docs/
-├── index.mdx                # Landing page
-├── overview.mdx             # Specialization overview
-├── requirements.mdx         # Pre-qualification requirements
-├── audit-process.mdx        # End-to-end audit walkthrough
-├── module-a/                # General requirements (7 controls)
-│   ├── 1.1-organizational-data.mdx
-│   ├── 1.2-financial-documentation.mdx
-│   ├── 2.1-service-delivery-methodology.mdx
-│   ├── 2.2-quality-management.mdx
-│   ├── 3.1-customer-satisfaction.mdx
-│   ├── 3.2-complaint-handling.mdx
-│   └── 3.3-security-privacy.mdx
-├── module-b/                # AI Apps specific (6 controls)
-│   ├── 1.1-azure-ai-implementation.mdx
-│   ├── 2.1-acr-performance.mdx
-│   ├── 2.2-customer-diversity.mdx
-│   ├── 3.1-certifications.mdx
-│   ├── 4.1-audit-readiness.mdx
-│   └── 4.2-partner-onboarding.mdx
-├── evidence-tracker.mdx     # Master checklist across all controls
-└── faq.mdx                  # Frequently asked questions
+├── .github/
+│   ├── copilot-instructions.md      # Copilot Chat engagement context
+│   ├── scripts/create-issues.sh    # Issue creation script
+│   └── workflows/
+│       ├── deploy.yml               # Build & deploy to GitHub Pages
+│       └── create-issues.yml        # Annual issue creation
+├── agent/
+│   ├── engagement-agent.py          # Interactive CLI agent
+│   ├── requirements.txt
+│   └── README.md
+└── src/content/docs/
+    ├── index.mdx / overview.mdx / requirements.mdx / ...
+    ├── module-a/                    # Controls A.1.1 – A.3.3
+    └── module-b/                    # Controls B.1.1 – B.4.2
 ```
-
----
-
-## 🤝 Contributing
-
-To update content, edit the relevant MDX file and open a pull request. The site automatically rebuilds on merge to `main`.
 
 ---
 
