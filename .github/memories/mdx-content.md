@@ -95,7 +95,8 @@ Use only these three icons in the `Status` column:
 ## Cross-references
 
 - Control numbers in prose always use dots: `A.2.1`, `B.3.1`. Never `A2.1` or just `2.1`.
-- Cross-link controls with relative paths: `[A.2.1](/module-a/2.1-service-delivery-methodology/)`
+- Cross-link controls with **relative** paths (Astro doesn't auto-prefix base on absolute markdown links): from a docs page at depth 1 like `src/content/docs/audit-process.mdx`, link to `../module-a/2-1-service-delivery-methodology/` (not `/module-a/...`).
+- **Filenames must NOT contain dots** — Starlight strips them from URL slugs. Use `2-1-foo.mdx` (slug `/module-a/2-1-foo/`) not `2.1-foo.mdx` (which becomes `/module-a/21-foo/`).
 - Never link to GitHub Issues by hard-coded number — they vary per fork.
 
 ## When evidence requirements change

@@ -1,13 +1,30 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// When deploying to GitHub Pages, set the SITE env variable to your Pages URL,
-// e.g. https://YOUR_ORG.github.io/YOUR_REPO_NAME
-// GitHub Actions: add a repo variable ASTRO_SITE or hard-code below.
-const site = process.env.ASTRO_SITE ?? 'https://example.github.io/ai-apps-specialization';
+// ─── Site URL & base path ─────────────────────────────────────────────────────
+// On GitHub Actions, GITHUB_REPOSITORY is "owner/repo" and GITHUB_REPOSITORY_OWNER
+// is just "owner". We derive both `site` and `base` from these so a freshly-forked
+// template builds correctly with no manual configuration.
+//
+// You can override either by setting ASTRO_SITE / ASTRO_BASE as repo variables.
+//
+// Special case: user/org pages (repo named `<owner>.github.io`) are served from
+// the domain root and must use base "/".
+const repo = process.env.GITHUB_REPOSITORY ?? 'YOUR_ORG/ai-apps-specialization';
+const [owner, repoName] = repo.split('/');
+const isUserOrOrgPage = repoName?.toLowerCase() === `${owner?.toLowerCase()}.github.io`;
+
+const site =
+  process.env.ASTRO_SITE ??
+  (isUserOrOrgPage ? `https://${owner}.github.io` : `https://${owner}.github.io/${repoName}`);
+
+const base = process.env.ASTRO_BASE ?? (isUserOrOrgPage ? '/' : `/${repoName}/`);
+
+const githubUrl = process.env.ASTRO_GITHUB_URL ?? `https://github.com/${repo}`;
 
 export default defineConfig({
   site,
+  base,
   integrations: [
     starlight({
       title: 'AI Apps on Microsoft Azure – Advanced Specialization',
@@ -17,7 +34,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO',
+          href: githubUrl,
         },
       ],
       sidebar: [
@@ -37,9 +54,7 @@ export default defineConfig({
         { label: 'FAQ', link: '/faq/' },
       ],
       editLink: {
-        baseUrl:
-          (process.env.ASTRO_GITHUB_URL ?? 'https://github.com/YOUR_ORG/YOUR_REPO') +
-          '/edit/main/',
+        baseUrl: `${githubUrl}/edit/main/`,
       },
     }),
   ],

@@ -127,7 +127,7 @@ create_issue \
 
 Provide evidence of your organisation's legal identity and reporting structure.
 
-📖 [Evidence guide](../../src/content/docs/module-a/1.1-organizational-data.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/1-1-organizational-data.mdx)
 
 ---
 
@@ -158,7 +158,7 @@ create_issue \
 
 Provide evidence of financial viability and adequate professional insurance.
 
-📖 [Evidence guide](../../src/content/docs/module-a/1.2-financial-documentation.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/1-2-financial-documentation.mdx)
 
 ---
 
@@ -189,7 +189,7 @@ create_issue \
 
 Demonstrate a documented, repeatable methodology used for service delivery.
 
-📖 [Evidence guide](../../src/content/docs/module-a/2.1-service-delivery-methodology.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/2-1-service-delivery-methodology.mdx)
 
 ---
 
@@ -224,7 +224,7 @@ create_issue \
 
 Provide evidence of a quality management system, CSAT process, and escalation procedure.
 
-📖 [Evidence guide](../../src/content/docs/module-a/2.2-quality-management.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/2-2-quality-management.mdx)
 
 ---
 
@@ -264,7 +264,7 @@ create_issue \
 
 Provide actual CSAT/NPS outcome data and customer references demonstrating delivery quality.
 
-📖 [Evidence guide](../../src/content/docs/module-a/3.1-customer-satisfaction.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/3-1-customer-satisfaction.mdx)
 
 ---
 
@@ -303,7 +303,7 @@ create_issue \
 
 Demonstrate a formal complaint handling process with a log and at least one resolved case.
 
-📖 [Evidence guide](../../src/content/docs/module-a/3.2-complaint-handling.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/3-2-complaint-handling.mdx)
 
 ---
 
@@ -345,7 +345,7 @@ create_issue \
 
 Provide evidence of information security and data protection policies in active use.
 
-📖 [Evidence guide](../../src/content/docs/module-a/3.3-security-privacy.mdx)
+📖 [Evidence guide](../../src/content/docs/module-a/3-3-security-privacy.mdx)
 
 ---
 
@@ -390,7 +390,7 @@ create_issue \
 
 Demonstrate practical experience delivering AI solutions on Azure with real customer outcomes.
 
-📖 [Evidence guide](../../src/content/docs/module-b/1.1-azure-ai-implementation.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/1-1-azure-ai-implementation.mdx)
 
 ---
 
@@ -434,7 +434,7 @@ create_issue \
 
 Demonstrate \$15,000 USD Azure Consumed Revenue per qualifying pillar in the last three months.
 
-📖 [Evidence guide](../../src/content/docs/module-b/2.1-acr-performance.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/2-1-acr-performance.mdx)
 
 ---
 
@@ -481,7 +481,7 @@ create_issue \
 
 Demonstrate at least 3 unique customers contributing ACR across eligible strategic pillars.
 
-📖 [Evidence guide](../../src/content/docs/module-b/2.2-customer-diversity.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/2-2-customer-diversity.mdx)
 
 ---
 
@@ -529,7 +529,7 @@ create_issue \
 
 Five individuals must hold the four required certifications (each cert held by at least one person).
 
-📖 [Evidence guide](../../src/content/docs/module-b/3.1-certifications.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/3-1-certifications.mdx)
 
 ---
 
@@ -583,7 +583,7 @@ create_issue \
 
 Structured, indexed evidence package ready for auditor submission.
 
-📖 [Evidence guide](../../src/content/docs/module-b/4.1-audit-readiness.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/4-1-audit-readiness.mdx)
 
 ---
 
@@ -639,7 +639,7 @@ create_issue \
 
 Provide structured customer onboarding materials and delivery templates demonstrating a systematic approach.
 
-📖 [Evidence guide](../../src/content/docs/module-b/4.2-partner-onboarding.mdx)
+📖 [Evidence guide](../../src/content/docs/module-b/4-2-partner-onboarding.mdx)
 
 ---
 
