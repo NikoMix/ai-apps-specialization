@@ -1,0 +1,62 @@
+---
+title: "Innersource – Roadmap & Backlog"
+description: How to read the AI Applications on Microsoft Azure specialization toolkit roadmap and contribute to the backlog.
+sidebar:
+  label: "Roadmap & Backlog"
+  order: 3
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## When to use this
+
+Read once when joining the practice, then whenever you are deciding *which* contribution to make. The roadmap turns the open-ended "improve the toolkit" instruction into a prioritised queue.
+
+## Where the roadmap lives
+
+The live backlog is the set of open GitHub Issues in this repository, filtered by label. Treat this page as the explanation of the queue, not the queue itself.
+
+| Filter | What it shows |
+|---|---|
+| [`label:engagement-playbook`](https://github.com/NikoMix/specialization-ai-apps/issues?q=is%3Aissue+is%3Aopen+label%3Aengagement-playbook) | Open improvements to engagement playbook pages |
+| [`label:audit-evidence`](https://github.com/NikoMix/specialization-ai-apps/issues?q=is%3Aissue+is%3Aopen+label%3Aaudit-evidence) | Open improvements to Module A / Module B pages |
+| [`label:reference-architecture`](https://github.com/NikoMix/specialization-ai-apps/issues?q=is%3Aissue+is%3Aopen+label%3Areference-architecture) | New or updated reference architectures |
+| [`label:lesson-learned`](https://github.com/NikoMix/specialization-ai-apps/issues?q=is%3Aissue+is%3Aopen+label%3Alesson-learned) | Stories from real engagements waiting to be folded in |
+| [`label:good-first-contribution`](https://github.com/NikoMix/specialization-ai-apps/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-contribution) | Small, well-scoped work for first-time contributors |
+
+## Themes for the current period
+
+These are the current standing themes the practice leadership wants progress on. They are reviewed quarterly.
+
+1. **RAI depth.** Every engagement playbook page should reference a concrete RAI control. Some still gesture at it. Target: each page lists at least one specific mitigation.
+2. **Reference architecture variants.** The four canonical patterns cover most engagements but not all. We want one new vetted pattern per quarter — sourced from a real customer engagement.
+3. **Eval-set quality.** The eval-harness guidance in the LLD and runbook templates is generic. We want concrete eval-set examples per pattern.
+4. **Cost benchmarking.** Sizing rules of thumb (tokens per PTU, vector index cost per million chunks, …) need to be captured as they emerge from engagements.
+5. **Audit evidence anonymisation.** A library of anonymisable artefact templates that consultants can populate during delivery, reducing audit prep time.
+
+## Submitting to the backlog
+
+Open an issue with the relevant template. The lighter the issue, the more likely it is to attract a contributor. A good backlog item:
+
+- States the gap in one sentence
+- Names the engagement (anonymised) where the gap was hit
+- Proposes a shape for the fix
+- Estimates effort in T-shirt size (S / M / L)
+
+## Picking from the backlog
+
+If you have an hour: start with `good-first-contribution`. If you have a day: pick something tagged `lesson-learned` and pair with the original author. If you have a week: take on one of the standing themes above and coordinate with the practice lead.
+
+<Aside type="tip">
+  Closing the loop matters. When you ship a contribution that closed a backlog item, link the PR in the issue so the audit trail is clean.
+</Aside>
+
+## Output: customer-ready deliverable
+
+None — but a healthy backlog is itself evidence under Module A.2.2 (Quality Management) and Module B.4.2 (Partner Onboarding Assets).
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Spot a theme that's missing or one we should retire? Open a PR against `src/content/docs/innersource/roadmap.mdx` with the `innersource` label.
+</Aside>

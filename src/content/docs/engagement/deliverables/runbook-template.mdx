@@ -1,0 +1,81 @@
+---
+title: "Deliverable – Runbook Template"
+description: Operational runbook template for an AI Applications on Microsoft Azure workload.
+sidebar:
+  label: "Runbook Template"
+  order: 3
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Author during build and finalise before go-live. The runbook is what the on-call engineer reads at 3am — it must be unambiguous, copy-pasteable, and version-controlled with the application code.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Signed LLD | Previous step | PDF |
+| 2 | Customer on-call rota | Customer ops | Document |
+| 3 | Existing ticketing tool + queue | Customer ops | Text |
+| 4 | Existing incident severity matrix | Customer ops | Document |
+| 5 | Escalation contacts (customer + you + Microsoft) | All | Contact list |
+
+## Document structure
+
+<Steps>
+
+1. **At-a-glance card** — one page: app name, owners, prod region(s), SLO, key dashboards, key alerts, escalation path.
+
+2. **Architecture refresher** — diagram + 3-sentence narrative. No more.
+
+3. **Routine operations**
+
+   - Daily / weekly health checks
+   - Backup verification
+   - Cost review cadence
+   - Quota and capacity monitoring (Azure OpenAI tokens-per-minute, PTU usage)
+
+4. **Incident response per alert** — for every alert in Application Insights / Azure Monitor, a runbook entry with:
+
+   - What triggered the alert
+   - Confirm-the-incident steps
+   - Mitigation steps (with exact commands / portal paths)
+   - Rollback steps
+   - Communication template
+
+5. **Common AI-Apps-specific incidents**
+
+   - Azure OpenAI 429 / quota exhaustion → secondary deployment, rate-limit clients, request capacity increase
+   - Content filter false positives → adjust policy, contact Microsoft support if persistent
+   - Prompt injection signal in logs → triage with security, rotate exposed secrets if any
+   - RAG quality regression → re-run eval set, compare vs. last release, roll back prompt or index version
+   - Application Insights cost spike → check sampling, check log levels
+
+6. **Change control**
+
+   - Prompt change: PR, review by two, eval set must pass, canary 10% / 24h
+   - Model change: full eval set, content-filter retest, canary 10% / 7d, RAI sign-off
+   - IaC change: standard CI/CD path
+
+7. **Disaster recovery** — RPO / RTO, secondary region activation steps, data restore procedure, failover test cadence.
+
+8. **Contacts** — customer ops, your hypercare team, Microsoft support (with subscription support plan details).
+
+</Steps>
+
+## Output: customer-ready deliverable
+
+A runbook stored alongside the application code (same repo), referenced from the LLD, and walked through interactively with customer ops during KT.
+
+<Aside type="tip" title="Download the workfile">
+[📄 Runbook template (.docx)](pathname:///templates/deliverables/runbook-template.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Faced an incident pattern not in this template? Add it.
+  Open a PR against `src/content/docs/engagement/deliverables/runbook-template.mdx` with the `template` label.
+</Aside>

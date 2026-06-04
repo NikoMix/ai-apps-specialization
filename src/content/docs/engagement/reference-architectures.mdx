@@ -1,0 +1,108 @@
+---
+title: "Engagement Playbook – Reference Architectures"
+description: Catalogue of canonical AI Applications on Microsoft Azure reference architectures with selection guidance.
+sidebar:
+  label: "Reference Architectures"
+  order: 6
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## When to use this
+
+Use during the discovery workshop's Day-2 architecture session to anchor the conversation in a known-good pattern, and again during HLD authoring to justify service selection. Every AI Apps engagement should map cleanly to one of the patterns below — if it does not, treat that as a risk and challenge the requirements.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Prioritised use case from discovery | Discovery report | Document |
+| 2 | Latency / throughput expectations | Customer | Numeric |
+| 3 | Identity surface (internal users / external customers) | Customer | Text |
+| 4 | Data classification | Customer data team | Document |
+| 5 | Multi-region / DR requirements | Customer | Document |
+
+## The patterns
+
+### Pattern 1 — RAG over enterprise documents
+
+**Use when** the customer wants grounded answers from their own documents (policies, manuals, contracts), with citations.
+
+**Azure services**
+
+- Azure OpenAI in Azure AI Foundry (chat completion model + embeddings model)
+- Azure AI Search (vector + keyword hybrid index)
+- Azure Blob Storage (source documents)
+- Azure App Service or Azure Container Apps (front end + orchestration)
+- Application Insights + Azure Monitor (request / token telemetry)
+- Microsoft Entra ID (user auth) + managed identity (service-to-service)
+
+**Key design choices** — chunking strategy, embedding model + dimension, hybrid vs. pure vector, re-ranker, citation rendering, refresh pipeline.
+
+### Pattern 2 — Agentic workflow on Azure Container Apps or AKS
+
+**Use when** the use case involves multi-step reasoning, tool calling, or orchestration across systems (e.g. a service-desk agent that reads tickets, queries CMDB, drafts a reply, and creates a change record).
+
+**Azure services**
+
+- Azure OpenAI in Azure AI Foundry (function/tool calling capable model)
+- Azure Container Apps (preferred) or AKS (when the customer already runs AKS)
+- Azure Service Bus or Azure Storage Queues (async work)
+- Azure Cosmos DB (agent state, conversation history)
+- Azure AI Foundry Agent Service or open-source orchestration (LangGraph, Semantic Kernel)
+- Application Insights for distributed tracing
+
+**Key design choices** — orchestration framework, tool registry & permissions, idempotent tool implementations, retry / compensation strategy, human-in-the-loop checkpoints.
+
+### Pattern 3 — Real-time AI on App Service + Cosmos DB
+
+**Use when** the use case is latency-sensitive end-user chat or assistive UI inside an existing web app, with persistent conversation history.
+
+**Azure services**
+
+- Azure App Service (web app + WebSockets)
+- Azure OpenAI (streaming completions)
+- Azure Cosmos DB for NoSQL (conversation history, with TTL)
+- Azure Front Door (global routing, WAF)
+- Microsoft Entra External ID (B2C scenarios)
+
+**Key design choices** — token streaming end-to-end, conversation context window strategy, per-user rate limiting, abuse monitoring.
+
+### Pattern 4 — Microsoft Fabric + Azure AI Foundry analytics copilot
+
+**Use when** the AI app surfaces insights over governed analytical data — a "talk to your data" experience for analysts.
+
+**Azure services**
+
+- Microsoft Fabric (OneLake, Lakehouse, semantic models)
+- Azure AI Foundry (model deployment + evaluation)
+- Azure OpenAI (NL → DAX/SQL generation)
+- Power BI embedded for visualisation
+- Microsoft Purview (governance + lineage)
+
+**Key design choices** — semantic-model–first vs. SQL-first generation, prompt grounding on schema, evaluation harness over a question bank, governance via Purview labels.
+
+## Selection guide
+
+| Signal | Likely pattern |
+|---|---|
+| "Answer questions from our PDFs" | Pattern 1 |
+| "Automate a multi-step process" | Pattern 2 |
+| "Embed chat in our existing app" | Pattern 3 |
+| "Self-service insights from our warehouse" | Pattern 4 |
+
+## Output: customer-ready deliverable
+
+A one-page architecture decision record (ADR) selecting the pattern, plus the chosen pattern's Visio / Excalidraw diagram folded into the HLD.
+
+<Aside type="tip">
+  Microsoft maintains canonical architectures at [learn.microsoft.com/azure/architecture/ai-ml/](https://learn.microsoft.com/azure/architecture/ai-ml/).
+  Always link the HLD back to the exact reference architecture you adapted.
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Built a fifth pattern for a recurring shape, or improved an existing one with a real engagement learning?
+  Open a PR against `src/content/docs/engagement/reference-architectures.mdx` with the `reference-architecture` label.
+</Aside>

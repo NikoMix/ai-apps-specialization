@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Engagement Agent
+    url: https://github.com/NikoMix/specialization-ai-apps/blob/main/.github/agents/engagement-agent.agent.md
+    about: Ask the in-repo Engagement Agent for guidance on controls, evidence, or playbook steps before raising an issue.
+  - name: Contribution guide
+    url: https://github.com/NikoMix/specialization-ai-apps/blob/main/CONTRIBUTING.md
+    about: How to branch, label, and review PRs.

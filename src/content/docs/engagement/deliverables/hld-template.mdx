@@ -1,0 +1,71 @@
+---
+title: "Deliverable – High-Level Design (HLD) Template"
+description: HLD template for an AI Applications on Microsoft Azure engagement.
+sidebar:
+  label: "HLD Template"
+  order: 1
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Produce one HLD per engagement, immediately after the discovery workshop. The HLD is the customer's first signable architectural artefact and the basis for the LLD and the WAF assessment.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Discovery report (use case, data, RAI guardrails) | Discovery workshop | Document |
+| 2 | Non-functional requirements (SLO, throughput, cost) | Customer | Document |
+| 3 | Identity & networking constraints | Customer | Document |
+| 4 | Compliance scope (e.g. ISO 27001, GDPR, HIPAA) | Customer compliance | Document |
+
+## Document structure
+
+The downloadable template ships with these sections — keep them all, even if some are short, so the HLD shape is consistent across engagements.
+
+<Steps>
+
+1. **Cover & document control** — version, authors, reviewers, sign-off block.
+
+2. **Executive summary** — the use case in one paragraph, the chosen reference architecture pattern, the headline cost and timeline.
+
+3. **Business context & success metrics** — what the AI app will measurably change.
+
+4. **Scope** — in / out / deferred. Be explicit about what *isn't* in the engagement.
+
+5. **Solution architecture** — block diagram, narrative, chosen Azure services, justification for each service vs. alternatives.
+
+6. **Data architecture** — sources, classification, flows, retention, residency.
+
+7. **Identity & access** — Entra ID model, managed identities, RBAC scopes, conditional access posture.
+
+8. **Networking** — public vs. private, private endpoints, egress controls, DNS, WAF.
+
+9. **Responsible AI** — harms identification, mitigations (system prompt, content filters, abuse monitoring), human-in-the-loop checkpoints, transparency notes.
+
+10. **Non-functional requirements** — availability, latency, throughput, RPO / RTO, scalability strategy, cost envelope.
+
+11. **Operations** — observability, alerting, on-call, runbook reference, change control for prompts and models.
+
+12. **Risks & assumptions** — register with owner and mitigation.
+
+13. **Phased delivery plan** — milestones, gates, deliverables per phase.
+
+</Steps>
+
+## Output: customer-ready deliverable
+
+A signed HLD in PDF, version-controlled in the engagement folder, with a one-page summary slide that the customer sponsor can take to their steerco.
+
+<Aside type="tip" title="Download the workfile">
+[📄 HLD template (.docx)](pathname:///templates/deliverables/hld-template.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Found a section auditors or customers always push back on, or a diagram convention that scales better?
+  Open a PR against `src/content/docs/engagement/deliverables/hld-template.mdx` with the `template` label.
+</Aside>

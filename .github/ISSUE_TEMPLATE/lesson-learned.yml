@@ -1,0 +1,67 @@
+name: Lesson learned
+description: Capture a lesson learned from a real engagement and propose where it should land in the toolkit.
+title: "[lesson] <short summary>"
+labels: ["lesson-learned", "innersource"]
+body:
+  - type: input
+    id: engagement
+    attributes:
+      label: Engagement slug (anonymised)
+      description: "e.g. customer-a-rag-pilot-2026q2"
+      placeholder: "customer-a-rag-pilot-2026q2"
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Engagement phase where the lesson surfaced
+      options:
+        - Qualification
+        - Discovery
+        - HLD
+        - LLD
+        - Build
+        - Hypercare
+        - Closeout
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: What happened?
+      description: Anonymised, 1–2 paragraphs. What was the situation, what surprised you?
+    validations:
+      required: true
+  - type: textarea
+    id: rootcause
+    attributes:
+      label: Root cause
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What did you do, and what would you do differently next time?
+    validations:
+      required: true
+  - type: textarea
+    id: landing
+    attributes:
+      label: Where should this land in the toolkit?
+      description: "Which page or template should change to prevent the next engagement from hitting this?"
+    validations:
+      required: true
+  - type: input
+    id: control-ref
+    attributes:
+      label: Related control (optional)
+      placeholder: "e.g. B.1.1"
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have not included any customer-identifying data
+          required: true
+        - label: I have the right to share this lesson internally
+          required: true

@@ -1,0 +1,29 @@
+name: Copilot setup steps
+
+# This workflow defines the environment GitHub Copilot agent uses when working
+# in this repository. It installs Node.js 24 + npm dependencies so the agent can
+# run `npm run build` and validate MDX changes without re-resolving dependencies.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build

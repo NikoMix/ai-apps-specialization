@@ -1,0 +1,97 @@
+---
+title: "Engagement Playbook – Qualification Questionnaire"
+description: BANT-style qualification questions tailored to an AI Applications on Microsoft Azure engagement.
+sidebar:
+  label: "Qualification Questionnaire"
+  order: 2
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Run before committing to a paid discovery workshop. The goal is to disqualify weak opportunities early and confirm the customer has enough budget, authority, need, and timeline to make an AI Apps engagement worth your time.
+
+A qualified AI Apps customer has: a sponsoring exec, a budget line, at least one named use case, an Azure subscription (or readiness to create one), and data that an AI app could reason over.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Executive sponsor name and role | Customer | Text |
+| 2 | Budget range for the first engagement | Customer (or PDM hint) | Numeric range |
+| 3 | Named AI use case(s) | Customer | Free text |
+| 4 | Azure tenant + subscription state | Customer / Azure portal | Boolean |
+| 5 | Data sources the AI app will use | Customer | List |
+| 6 | Existing Responsible AI policy | Customer | Boolean |
+
+## Step-by-step
+
+<Steps>
+
+1. **Send the questionnaire ahead of the meeting.** Ask for written answers to the first six "context" questions; the remaining questions are conversational and you score them during the call.
+
+2. **Score each section** on a 0–3 scale:
+
+   - 0 — disqualifying gap
+   - 1 — weak, needs remediation before discovery
+   - 2 — acceptable
+   - 3 — strong signal
+
+3. **Apply the gate.** Proceed to discovery only if total score is ≥ 12 and no individual section scores 0.
+
+4. **File the scored questionnaire** in your CRM against the opportunity.
+
+</Steps>
+
+### Section 1 — Business context
+
+- What outcome does the AI app need to drive? (revenue, deflection, cycle time, quality)
+- Who owns that outcome today, and what is the current baseline?
+- What is the consequence of doing nothing for 12 months?
+
+### Section 2 — Authority & budget
+
+- Who is the executive sponsor? Are they on the kickoff call?
+- Is there a budget line item, or is funding pending business case?
+- Who signs the SOW?
+
+### Section 3 — Use case shape
+
+- Is this a RAG / grounded-answer scenario, an agentic workflow, content generation, or a classification / extraction task?
+- Single-tenant internal app, multi-tenant SaaS, or customer-facing public endpoint?
+- Synchronous (chat / API) or asynchronous (batch) workload?
+
+### Section 4 — Azure & data readiness
+
+- Existing Azure subscription? Landing zone in place?
+- Are the relevant data sources already in Azure, or do they need to be moved or accessed via private link?
+- Is Azure OpenAI / Azure AI Foundry already provisioned in a supported region?
+- Existing identity (Entra ID) and PIM posture?
+
+### Section 5 — Responsible AI posture
+
+- Is there an internal Responsible AI policy or standard?
+- Has the use case been reviewed for high-risk categories (e.g. consequential decisions, biometrics, minors)?
+- Who is the accountable human in the loop?
+
+### Section 6 — Operating model
+
+- Who will operate the AI app after handover — customer, your team, or a third party?
+- Is there an existing on-call rota that will absorb this?
+- What is the model / prompt change-control expectation?
+
+## Output: customer-ready deliverable
+
+A completed, scored questionnaire stored against the opportunity, plus a go / no-go recommendation to the account team.
+
+<Aside type="tip" title="Download the workfile">
+[📄 Download the qualification questionnaire (.docx)](pathname:///templates/engagement/qualification-questionnaire.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Found a question that consistently disqualifies bad fits early, or a scoring threshold that should move?
+  Open a PR against `src/content/docs/engagement/qualification-questionnaire.mdx` with the `engagement-playbook` label.
+</Aside>

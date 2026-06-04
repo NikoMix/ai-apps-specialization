@@ -1,0 +1,70 @@
+---
+title: "Deliverable – Low-Level Design (LLD) Template"
+description: LLD template for an AI Applications on Microsoft Azure engagement.
+sidebar:
+  label: "LLD Template"
+  order: 2
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Produce after the HLD is signed and before any build sprint that deploys real Azure resources. The LLD is the build team's source of truth — SKUs, sizing, IaC, identities, configuration. It is also what your ops team uses to write the runbook.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Signed HLD | Previous step | PDF |
+| 2 | WAF assessment findings | WAF workshop | Workbook |
+| 3 | Assigned Azure subscription(s) and naming convention | Customer cloud team | Document |
+| 4 | Tagging policy | Customer cloud team | Document |
+| 5 | DevOps tooling state (Azure DevOps / GitHub Enterprise) | Customer | Document |
+
+## Document structure
+
+<Steps>
+
+1. **Cover & document control.**
+
+2. **Resource inventory** — table of every Azure resource, with name, SKU, region, redundancy, tags, owner.
+
+3. **Sizing & capacity** — model tokens-per-minute / RPM, vector index size, compute CPU/RAM, storage tiers, scale rules.
+
+4. **Network design** — VNets, subnets, NSGs, private endpoints, route tables, DNS zones, ExpressRoute / VPN interactions.
+
+5. **Identity design** — Entra app registrations, managed identities, role assignments at exact scope, group memberships, conditional-access policies.
+
+6. **Data design** — schemas, partitioning, indexing, retention, backup, encryption keys (CMK / PMK), Purview registrations.
+
+7. **AI model & prompt design** — Azure OpenAI deployments (model, version, capacity, PTU vs. PAYG), prompt repository structure, system prompts, eval harness, content-filter policy ID(s).
+
+8. **Application configuration** — environment variables, Key Vault references, feature flags.
+
+9. **Observability** — Application Insights resources, KQL queries for token usage, alert rules, dashboards, log retention.
+
+10. **CI/CD** — repo layout, branching strategy, GitHub Actions / Azure Pipelines stages, IaC tool (Bicep / Terraform), promotion gates, secret handling.
+
+11. **Security controls trace** — every control from the WAF + RAI checklist with the exact LLD section that implements it.
+
+12. **Test plan** — unit, integration, RAI eval, load, chaos, security.
+
+13. **Deployment runbook reference** — points at the runbook deliverable.
+
+</Steps>
+
+## Output: customer-ready deliverable
+
+A signed LLD in PDF + the matching IaC repository tag. Both versions move in lockstep — every LLD update is paired with a tagged IaC commit.
+
+<Aside type="tip" title="Download the workfile">
+[📄 LLD template (.docx)](pathname:///templates/deliverables/lld-template.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Pinned down a sizing rule of thumb (e.g. tokens-per-second per PTU) that travels across customers?
+  Open a PR against `src/content/docs/engagement/deliverables/lld-template.mdx` with the `template` label.
+</Aside>

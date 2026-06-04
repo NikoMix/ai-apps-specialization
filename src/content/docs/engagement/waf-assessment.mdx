@@ -1,0 +1,70 @@
+---
+title: "Engagement Playbook – Well-Architected Framework Assessment"
+description: How to run a Microsoft Azure Well-Architected Framework assessment for an AI workload during an AI Applications engagement.
+sidebar:
+  label: "WAF Assessment"
+  order: 4
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Run a WAF assessment after the discovery workshop and before LLD sign-off. Re-run it before go-live as a final gate, and at every major architecture change.
+
+For AI Apps, follow the [Azure Well-Architected Framework AI workload guidance](https://learn.microsoft.com/azure/well-architected/ai/) — it extends the five pillars with AI-specific questions across model selection, RAG design, prompt management, evaluation, content safety, and cost of inference.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Current or proposed architecture diagram | HLD | Diagram |
+| 2 | SLO / SLA targets per workload tier | Customer | Document |
+| 3 | Threat model (or willingness to do one) | Customer security | Document |
+| 4 | Cost target for the first 12 months | Customer finance | Numeric |
+| 5 | Eval dataset for the model / RAG quality | Engagement team | JSONL / CSV |
+
+## Step-by-step
+
+<Steps>
+
+1. **Open the AI workload assessment** on [learn.microsoft.com/assessments](https://learn.microsoft.com/assessments/) — pick the Azure Well-Architected AI workload assessment.
+
+2. **Score each pillar** with the customer's architects in the room, not in isolation. The pillars and their AI-specific lenses are:
+
+   - **Reliability** — model availability & quotas, retry / fallback to a secondary model deployment, graceful degradation when the LLM is unavailable.
+   - **Security** — Entra ID auth on Azure OpenAI, private endpoints, content safety, prompt injection mitigations, data exfiltration controls, model registry governance.
+   - **Cost Optimization** — model choice (GPT-4.1 vs. GPT-4o-mini vs. open-source), provisioned throughput vs. PAYG, caching, prompt size discipline, token budgets.
+   - **Operational Excellence** — Application Insights + Azure Monitor for prompts/responses, evaluation pipeline in CI, prompt change control, model rollout strategy (canary / shadow).
+   - **Performance Efficiency** — latency budget, streaming responses, vector search index tuning (HNSW params), parallelism, Azure AI Search replicas.
+
+3. **Add the cross-cutting Responsible AI lens.** Even though it is not a pillar, treat it as a sixth column in the workbook. Cover: harms identification, content filters, abuse monitoring, human-in-the-loop, transparency notes, post-deployment monitoring.
+
+4. **Capture findings as issues** in the WAF workbook with a severity (Critical / High / Medium / Low) and an owner.
+
+5. **Produce a remediation backlog.** Group findings into "must fix before go-live" and "fix post go-live" and link each to the LLD or runbook section it changes.
+
+</Steps>
+
+### Sample finding format
+
+| ID | Pillar | Finding | Severity | Owner | Remediation |
+|---|---|---|---|---|---|
+| WAF-001 | Security | Azure OpenAI accessed via public endpoint | High | Customer security | Move to private endpoint, restrict outbound from AKS |
+| WAF-002 | Cost | No prompt cache; same RAG queries re-run hourly | Medium | Engagement team | Add semantic cache in Azure Cache for Redis |
+| WAF-003 | Reliability | Single Azure OpenAI deployment, no fallback | High | Engagement team | Add secondary deployment in paired region with SDK retry policy |
+
+## Output: customer-ready deliverable
+
+A completed WAF workbook (one tab per pillar plus Responsible AI), a prioritised remediation backlog, and an executive summary slide.
+
+<Aside type="tip" title="Download the workfile">
+[📄 WAF assessment workbook (.xlsx)](pathname:///templates/engagement/waf-assessment.xlsx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Spotted a recurring finding across customers, or built a better remediation pattern?
+  Open a PR against `src/content/docs/engagement/waf-assessment.mdx` with the `engagement-playbook` label.
+</Aside>

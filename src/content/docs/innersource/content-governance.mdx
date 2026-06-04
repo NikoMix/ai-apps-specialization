@@ -1,0 +1,87 @@
+---
+title: "Innersource – Content Governance"
+description: Lifecycle, ownership, and review cadence for content in this AI Applications on Microsoft Azure specialization toolkit.
+sidebar:
+  label: "Content Governance"
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## When to use this
+
+Read this before adding new content categories, before changing existing template shapes, and once a quarter as a refresh.
+
+Content governance exists because innersource without governance becomes noise: pages drift out of date, duplicate templates appear, and the toolkit stops being trusted. This page defines who owns what, when content is reviewed, and how content moves through its lifecycle.
+
+## Lifecycle
+
+Every page or workfile in this repo lives in one of four states:
+
+| State | Meaning | Visible to consultants? |
+|---|---|---|
+| **Draft** | Authored but not reviewed. Marked with a `:::caution Draft:::` callout at the top. | Yes, but with a clear warning |
+| **Reviewed** | Approved by the area's `CODEOWNERS` entry. Default state for most content. | Yes |
+| **Endorsed** | Reviewed *and* validated against at least two real customer engagements. Marked with a green badge in the page front matter (`endorsed: true`, future enhancement). | Yes |
+| **Deprecated** | Replaced or obsolete. Kept for one release cycle for traceability, then removed. Marked with a `:::caution Deprecated:::` callout linking to the replacement. | Yes, but discouraged |
+
+Transitions are made by PR, with the state change explicit in the PR description.
+
+## Ownership
+
+`CODEOWNERS` at the root of the repository maps content areas to practice leads. The current shape:
+
+| Area | Practice lead role |
+|---|---|
+| `src/content/docs/module-a/**` | Delivery quality lead |
+| `src/content/docs/module-b/**` | AI Apps practice lead |
+| `src/content/docs/engagement/**` | AI Apps presales lead |
+| `src/content/docs/engagement/deliverables/**` | Delivery quality lead |
+| `src/content/docs/innersource/**` | Practice operations lead |
+| `.github/**` | Repo maintainer |
+| `public/templates/**` | Owner of the matching MDX page |
+
+Practice leads have a 3-business-day review SLA. If the SLA is missed, escalate to the repo maintainer.
+
+## Review cadence
+
+| Cadence | What gets reviewed |
+|---|---|
+| Per PR | The changed page, by the area owner |
+| Monthly | Open PRs older than the SLA, by the repo maintainer |
+| Quarterly | All `Endorsed` pages — confirm still accurate vs. current Azure services and Microsoft guidance |
+| Annually | Whole repo — by the practice leadership team, in advance of the annual audit refresh |
+
+The annual review is also when `Deprecated` pages are removed and the next year's roadmap is set on the [Roadmap](../roadmap/) page.
+
+## Labels
+
+Labels are deliberately small and stable. Do not invent new ones without a PR to this page.
+
+| Label | Meaning |
+|---|---|
+| `innersource` | Anything contribution-flow related |
+| `engagement-playbook` | Changes to pages under `engagement/` |
+| `audit-evidence` | Changes to Module A or Module B pages |
+| `lesson-learned` | A real-world story being captured |
+| `template` | Changes to a downloadable workfile or deliverable template |
+| `reference-architecture` | Changes to the reference architectures catalogue |
+| `good-first-contribution` | Small, well-scoped work for first-time contributors |
+
+## Anonymisation rules
+
+Identical to the audit's anonymisation rules. Replace customer names with "Customer A / B / C". Redact commercial detail. Leave methodological detail intact.
+
+<Aside type="caution">
+  PRs that introduce identifiable customer data will be closed without merge and the data purged from history. Always anonymise locally first.
+</Aside>
+
+## Output: customer-ready deliverable
+
+None — but the governance posture defined here is itself reusable evidence for Module A.3.3 (Quality Management) and Module B.4.2 (Partner Onboarding Assets).
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Want to change the lifecycle, ownership map, or labels? Open a PR against `src/content/docs/innersource/content-governance.mdx` (and `CODEOWNERS` if applicable) with the `innersource` label.
+</Aside>

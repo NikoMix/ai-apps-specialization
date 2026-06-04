@@ -1,0 +1,71 @@
+---
+title: "Innersource – Contributing"
+description: How to contribute improvements to this AI Applications on Microsoft Azure specialization toolkit.
+sidebar:
+  label: "Contributing"
+  order: 1
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Read this before you raise an issue or open a PR. The full contribution rules live in [`CONTRIBUTING.md`](https://github.com/NikoMix/specialization-ai-apps/blob/main/CONTRIBUTING.md) at the root of the repository — this page is the consultant-facing summary you can link to a colleague.
+
+The point of innersource here is simple: every consultant who runs an engagement is expected to leave the toolkit *better* than they found it — by adding a question, fixing a finding, improving a template, or filing a lesson learned.
+
+## Inputs you need from the customer
+
+None — this is an internal contribution flow.
+
+## How contributions flow
+
+<Steps>
+
+1. **Spot the gap during your engagement.** Missing question on the qualification questionnaire? A WAF finding pattern that repeats? A runbook entry you wished existed? Capture it then and there.
+
+2. **Raise an issue.** Use one of the three issue templates:
+
+   - `control-improvement` — for changes to a Module A or Module B audit control page
+   - `template-improvement` — for changes to an engagement playbook or deliverable template
+   - `lesson-learned` — for a real-world story tied back to a control or playbook step
+
+3. **Discuss before large changes.** For anything that changes more than two pages, comment on the issue first to align with the practice lead listed in `CODEOWNERS`.
+
+4. **Open a PR.** Branch from `main`, name it `improve/<short-topic>` or `lesson/<engagement-slug>`. Fill in the PR template — it asks for the engagement phase, the control reference, and whether the change is sourced from a real lesson.
+
+5. **Get review.** PRs need one approval from the area's `CODEOWNERS` entry. Standard review SLA: 3 business days.
+
+6. **Merge.** Squash-merge. The commit message becomes the changelog entry.
+
+</Steps>
+
+## What we want contributions on
+
+- New or sharper qualification questions
+- New WAF findings + remediations (with severity)
+- New reference architectures, especially with real production wins
+- New runbook incident entries — particularly AI-specific (model availability, content filters, prompt injection)
+- Improved facilitation flows for the discovery workshop
+- Anonymised case study fragments that can feed B.1.1 evidence
+
+## What we do not want
+
+- Customer-identifying data of any kind — anonymise as for the audit (Customer A / B / C)
+- Proprietary IP that you do not have the right to publish internally
+- Style-only churn that does not change meaning
+- Anything that contradicts the Microsoft Responsible AI Standard
+
+<Aside type="caution">
+  If you are unsure whether something can be contributed, ask the practice lead before opening the PR.
+</Aside>
+
+## Output: customer-ready deliverable
+
+None — but every merged contribution makes the *next* engagement faster, and feeds the next audit's B.4.2 (Partner Onboarding Assets) evidence.
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Improved this page itself? Open a PR against `src/content/docs/innersource/contributing.mdx` with the `innersource` label.
+</Aside>

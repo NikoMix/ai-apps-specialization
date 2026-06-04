@@ -1,0 +1,80 @@
+---
+title: "Engagement Playbook – Microsoft Assessment Platform Inputs"
+description: Inputs and telemetry required for Microsoft Cloud Adoption / MAP / strategy assessments tied to an AI Apps engagement.
+sidebar:
+  label: "Assessment Platform Inputs"
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Use whenever the customer agrees to (or requires) a Microsoft-led assessment alongside your engagement — typically a Cloud Adoption Strategy, AI Strategy, or a workload-specific assessment via Microsoft's assessment platforms. The inputs below cover what Microsoft assessors will ask for, packaged so you can collect them once and reuse across motions.
+
+## Inputs you need from the customer
+
+The complete checklist; pre-collect everything that is realistic and capture the rest as a gap log.
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Azure tenant ID and primary subscription IDs | Azure portal | Text |
+| 2 | Landing zone state (none / partial / ALZ-aligned) | Customer architect | Document or diagram |
+| 3 | Azure Monitor / Log Analytics workspace IDs | Azure portal | Text |
+| 4 | Application Insights resource IDs for in-scope apps | Azure portal | Text |
+| 5 | Azure OpenAI / AI Foundry resource list + region(s) | Azure portal | Spreadsheet |
+| 6 | Model deployments in use (model, version, capacity) | Azure OpenAI / Foundry | Spreadsheet |
+| 7 | Existing Azure spend by service (last 90 days) | Cost Management export | CSV |
+| 8 | Quota requests history and current consumption | Quota dashboard | Screenshot or export |
+| 9 | Identity model (Entra tenant, B2B / B2C usage, PIM state) | Customer identity team | Document |
+| 10 | Data sources in scope (location, classification, owner) | Customer data team | Spreadsheet |
+| 11 | Connectivity (ExpressRoute / VPN / public) | Customer network team | Diagram |
+| 12 | Current Responsible AI governance posture | Customer compliance | Document |
+
+## Step-by-step
+
+<Steps>
+
+1. **Send the input workbook** to the customer with sections for each row above. Set a 5-business-day return SLA.
+
+2. **Run pre-flight checks in Azure** while waiting. Use Azure Resource Graph queries to inventory AI resources and cross-check against what the customer provides — discrepancies surface shadow IT.
+
+3. **Reconcile and triage**. For every missing input, log a gap with an owner and a date by which it will be resolved.
+
+4. **Submit to the Microsoft assessment platform** the customer / PDM points you at. Keep your own copy of the inputs in the engagement folder.
+
+5. **Brief the customer on findings** as soon as the assessment platform produces its output, and fold findings into the WAF remediation backlog and the LLD.
+
+</Steps>
+
+### Azure Resource Graph queries you will reuse
+
+```kusto
+// Azure OpenAI / AI Services resources
+resources
+| where type =~ 'Microsoft.CognitiveServices/accounts'
+| project name, kind, sku.name, location, resourceGroup, subscriptionId
+
+// AKS, ACA, App Service in scope
+resources
+| where type in~ (
+    'Microsoft.ContainerService/managedClusters',
+    'Microsoft.App/containerApps',
+    'Microsoft.Web/sites')
+| project type, name, location, resourceGroup, subscriptionId
+```
+
+## Output: customer-ready deliverable
+
+A completed assessment-inputs workbook + an Azure Resource Graph inventory snapshot, ready to upload to the Microsoft assessment platform of choice.
+
+<Aside type="tip" title="Download the workfile">
+[📄 Assessment platform inputs workbook (.xlsx)](pathname:///templates/engagement/assessment-platform-inputs.xlsx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Microsoft changed an assessment platform field, or you found a useful new Resource Graph query?
+  Open a PR against `src/content/docs/engagement/assessment-platform-inputs.mdx` with the `engagement-playbook` label.
+</Aside>

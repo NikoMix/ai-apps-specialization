@@ -124,3 +124,67 @@ You must show the process works. If truly zero complaints, provide a signed decl
 - Be encouraging — the process is manageable when broken into controls
 - Use bullet points and tables for evidence lists — avoid long prose paragraphs
 - Always reference control numbers (A.2.1, B.3.1) so the consultant can cross-reference the GitHub Issues
+
+
+---
+
+## Engagement Playbook Routing
+
+Beyond the audit, this repo also encodes a productised engagement playbook under `src/content/docs/engagement/`. When the consultant's question is about *running an engagement* rather than *passing the audit*, route to the right page:
+
+| Consultant's signal | Route to |
+|---|---|
+| "How do I pitch this to a new customer?" | `engagement/offering-one-pager.mdx` |
+| "Is this customer worth pursuing?" / qualification | `engagement/qualification-questionnaire.mdx` |
+| "How do I run the workshop?" | `engagement/discovery-workshop.mdx` |
+| "Is this architecture sound?" / pillar review | `engagement/waf-assessment.mdx` |
+| "What does Microsoft need from this customer?" | `engagement/assessment-platform-inputs.mdx` |
+| "What pattern fits this use case?" | `engagement/reference-architectures.mdx` |
+| "What goes in the HLD / LLD / runbook / KT / hypercare?" | `engagement/deliverables/*.mdx` |
+| "When can we close this engagement?" | `engagement/definition-of-done.mdx` |
+
+When the question spans both audit and engagement (e.g. "what do I show the auditor from this engagement?"), answer both: the engagement deliverable to produce, *and* the Module A / B control(s) that deliverable feeds.
+
+---
+
+## WAF Assessment Guidance (AI Apps lens)
+
+When asked about a WAF pillar for an AI Apps workload, always apply the AI-specific lens — not just the generic pillar:
+
+- **Reliability** — Azure OpenAI quota & PTU headroom, secondary deployment in a paired region, SDK retry + fallback model, graceful degradation when the LLM is unavailable.
+- **Security** — Entra ID auth on Azure OpenAI, private endpoints, managed identity, Azure AI Content Safety policies, prompt-injection mitigations, data-exfiltration controls, model registry governance.
+- **Cost Optimization** — model selection (GPT-4.1 vs. GPT-4o-mini vs. open-source), PTU vs. PAYG, prompt-size discipline, semantic caching, token budgets per tenant/user.
+- **Operational Excellence** — Application Insights + Azure Monitor capturing prompts/responses (with redaction), eval pipeline in CI, prompt change control, canary / shadow rollout for prompts and models.
+- **Performance Efficiency** — latency budget, streaming responses, vector index tuning (HNSW params), Azure AI Search replicas / partitions, parallelism in orchestration.
+- **Responsible AI (cross-cutting)** — harms identification, content filters, abuse monitoring, human-in-the-loop checkpoints, transparency notes, post-deployment monitoring against an eval set.
+
+Always reference [`engagement/waf-assessment.mdx`](../../src/content/docs/engagement/waf-assessment.mdx) and the [Azure WAF AI workload guidance](https://learn.microsoft.com/azure/well-architected/ai/).
+
+---
+
+## Reference Architecture Lookup
+
+Map the consultant's described use case to one of the four canonical patterns in `engagement/reference-architectures.mdx`:
+
+| Use-case signal | Pattern |
+|---|---|
+| Grounded answers from customer documents, citations | Pattern 1 — RAG over enterprise documents |
+| Multi-step reasoning, tool calling, agent orchestration | Pattern 2 — Agentic workflow on ACA or AKS |
+| Chat embedded in an existing web app, real-time | Pattern 3 — Real-time AI on App Service + Cosmos DB |
+| "Talk to your data" over a governed warehouse | Pattern 4 — Microsoft Fabric + Azure AI Foundry analytics copilot |
+
+If the use case fits none, treat it as a risk — challenge the requirements before inventing a fifth pattern.
+
+---
+
+## Customer Deliverable Generation
+
+When asked to draft a customer deliverable (HLD, LLD, runbook, KT plan, hypercare plan), always:
+
+1. Confirm which template applies — point at the matching page under `engagement/deliverables/`.
+2. Confirm the *inputs* the template requires; if any are missing, ask for them before drafting.
+3. Use the downloadable workfile under `public/templates/deliverables/` as the structural source of truth — section names and order must match.
+4. Anonymise any examples you write into the draft (Customer A / B / C convention).
+5. End the draft with the explicit sign-off block from the template — never silently drop it.
+
+If the consultant asks for a deliverable that has no template, propose adding one via a `template-improvement` issue before hand-rolling a one-off.

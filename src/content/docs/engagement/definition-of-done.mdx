@@ -1,0 +1,78 @@
+---
+title: "Engagement Playbook – Definition of Done"
+description: Definition of Done for an AI Applications on Microsoft Azure engagement — the checklist that gates closeout and invoicing.
+sidebar:
+  label: "Definition of Done"
+  order: 8
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## When to use this
+
+Apply this checklist before declaring the engagement closed. Every box must be ticked. Anything unchecked is either descoped (with written customer sign-off) or extends the engagement.
+
+This Definition of Done also feeds the audit evidence package: every completed engagement should leave behind anonymisable artefacts that strengthen Module B.4.1 (Audit Readiness) and Module B.4.2 (Partner Onboarding Assets).
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Signed SOW + any change requests | Customer / your sales | PDF |
+| 2 | UAT sign-off | Customer test lead | PDF |
+| 3 | Production go-live confirmation | Customer ops | Email or PDF |
+| 4 | CSAT response | Customer sponsor | Survey export |
+
+## Definition of Done — engagement-wide
+
+### Delivery artefacts
+
+- [ ] Signed HLD filed against the engagement
+- [ ] Signed LLD filed against the engagement
+- [ ] Runbook delivered and walked through with customer ops
+- [ ] KT plan executed; sessions recorded and indexed
+- [ ] Hypercare plan agreed, with start and end dates
+
+### Quality gates
+
+- [ ] WAF assessment re-run before go-live; all Critical findings remediated or formally accepted
+- [ ] Responsible AI checklist signed off by named accountable owner
+- [ ] Eval dataset run on production model deployment; quality target met
+- [ ] Load / performance test executed against agreed SLO
+- [ ] Security review or pen test completed (where in scope)
+
+### Operational handover
+
+- [ ] Production access reduced to least privilege; engagement team off break-glass
+- [ ] Alerts wired to the customer's on-call rota; tested with a synthetic incident
+- [ ] Cost alerts configured against the agreed budget
+- [ ] Prompt / model change-control process documented in the runbook
+- [ ] Backup, restore, and DR procedures validated (or formally scoped out)
+
+### Commercial closeout
+
+- [ ] Final invoice issued and acknowledged
+- [ ] CSAT captured (target ≥ 8 / 10)
+- [ ] Reference customer status agreed (anonymous / named)
+- [ ] Case study draft (anonymised) drafted within 30 days
+
+### Innersource closeout
+
+- [ ] At least one lesson-learned issue raised in this repo with the `lesson-learned` label
+- [ ] Any template improvement, new question, or new finding promoted to a PR
+- [ ] Engagement folder archived per your retention policy
+
+## Output: customer-ready deliverable
+
+A signed Definition of Done document, countersigned by the customer sponsor, that triggers final invoice and hypercare end.
+
+<Aside type="tip" title="Download the workfile">
+[📄 Definition of Done template (.docx)](pathname:///templates/engagement/definition-of-done.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Added a check that caught a real go-live problem, or removed one that always slips?
+  Open a PR against `src/content/docs/engagement/definition-of-done.mdx` with the `engagement-playbook` label.
+</Aside>

@@ -50,6 +50,14 @@ export default defineConfig({
           label: 'Module B – AI Apps Specific',
           items: [{ autogenerate: { directory: 'module-b' } }],
         },
+        {
+          label: 'Engagement Playbook',
+          items: [{ autogenerate: { directory: 'engagement' } }],
+        },
+        {
+          label: 'Innersource',
+          items: [{ autogenerate: { directory: 'innersource' } }],
+        },
         { label: 'Evidence Tracker', link: '/evidence-tracker/' },
         { label: 'FAQ', link: '/faq/' },
       ],

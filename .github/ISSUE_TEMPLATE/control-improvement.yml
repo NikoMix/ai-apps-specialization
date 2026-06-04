@@ -1,0 +1,57 @@
+name: Control improvement
+description: Propose a change to a Module A or Module B audit control page or its evidence list.
+title: "[control] <short summary>"
+labels: ["audit-evidence", "innersource"]
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - "Module A – General Requirements"
+        - "Module B – AI Apps Specific"
+    validations:
+      required: true
+  - type: input
+    id: control-ref
+    attributes:
+      label: Control reference
+      description: "Full reference, e.g. A.2.1 or B.4.2"
+      placeholder: "A.2.1"
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: What's wrong or missing today?
+      description: One paragraph. If sourced from an engagement, anonymise the customer.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should the page (and the matching create-issues.sh checkbox) say instead?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence-impact
+    attributes:
+      label: Impact on evidence collection
+      description: Does this add, remove, or reword required evidence? Will partners already in-flight need to recollect anything?
+  - type: dropdown
+    id: effort
+    attributes:
+      label: T-shirt effort
+      options: ["S (under 1h)", "M (half-day)", "L (multi-day)"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have not included any customer-identifying data
+          required: true
+        - label: I am willing to open the PR myself (or have asked for help in the description)
+          required: false

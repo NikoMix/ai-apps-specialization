@@ -1,0 +1,28 @@
+# Code owners — review SLA: 3 business days
+#
+# Replace the placeholder handles below with the real practice-lead GitHub
+# usernames for your organisation. Multiple owners on a line means any one of
+# them can approve. The repo maintainer (@NikoMix) is the catch-all.
+
+# Catch-all
+*                                                @NikoMix
+
+# Audit evidence
+/src/content/docs/module-a/                      @NikoMix
+/src/content/docs/module-b/                      @NikoMix
+
+# Engagement playbook
+/src/content/docs/engagement/                    @NikoMix
+/src/content/docs/engagement/deliverables/       @NikoMix
+
+# Innersource & governance
+/src/content/docs/innersource/                   @NikoMix
+/CONTRIBUTING.md                                 @NikoMix
+/CODEOWNERS                                      @NikoMix
+
+# Engineering surface (workflows, scripts, agent, memories)
+/.github/                                        @NikoMix
+/scripts/                                        @NikoMix
+
+# Workfiles
+/public/templates/                               @NikoMix

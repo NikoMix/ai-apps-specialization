@@ -1,0 +1,67 @@
+---
+title: "Deliverable – Knowledge Transfer (KT) Plan Template"
+description: Knowledge transfer plan template for an AI Applications on Microsoft Azure engagement handover.
+sidebar:
+  label: "KT Plan Template"
+  order: 4
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Plan KT at the start of the build phase, not at the end. Execute KT in the last two sprints before hypercare. KT is what makes the difference between a customer who renews and a customer who calls you every week.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Receiving team(s) and named individuals | Customer | RACI |
+| 2 | Receiving team's current skills baseline | Customer manager | Self-assessment |
+| 3 | Preferred KT format (workshop / pairing / recorded) | Customer | Text |
+| 4 | Time budget the receiving team has | Customer manager | Hours / week |
+
+## Document structure
+
+<Steps>
+
+1. **Audience matrix** — for each receiving role (developer, SRE, data engineer, business analyst, RAI reviewer) note: current skill level, required end-state, sessions assigned.
+
+2. **Session catalogue** — typically 6–10 sessions, each with: title, duration, audience, prerequisites, learning objectives, hands-on exercise, owner, recorded yes/no.
+
+   Standard sessions for AI Apps:
+
+   - Architecture walkthrough
+   - Code repository tour & local dev setup
+   - Prompt repository & change control
+   - Eval harness — run it, read results, add a case
+   - Observability — Application Insights, KQL recipes
+   - Cost & capacity management (PTU vs. PAYG, quotas)
+   - Incident response — walk the runbook
+   - Responsible AI controls — content filters, abuse monitoring
+   - Disaster recovery drill
+
+3. **Hands-on labs** — for at least three sessions, include a lab the receiving team must complete on their own infrastructure.
+
+4. **Exit assessment** — each receiving individual confirms they can perform a defined set of tasks unsupervised. Sign-off captured.
+
+5. **Recording & artefact index** — every session recorded, indexed, and linked from the runbook.
+
+6. **Open-questions log** — questions raised during KT that you couldn't answer immediately, with owner and resolution date.
+
+</Steps>
+
+## Output: customer-ready deliverable
+
+A completed KT plan with signed exit assessments per receiving individual, plus a searchable recording library handed over with the runbook.
+
+<Aside type="tip" title="Download the workfile">
+[📄 KT plan template (.docx)](pathname:///templates/deliverables/kt-plan-template.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Built a session lab that customers consistently call out, or a better exit assessment?
+  Open a PR against `src/content/docs/engagement/deliverables/kt-plan-template.mdx` with the `template` label.
+</Aside>

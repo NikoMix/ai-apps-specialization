@@ -1,0 +1,68 @@
+---
+title: "Deliverable – Hypercare Plan Template"
+description: Hypercare plan template for an AI Applications on Microsoft Azure engagement post go-live.
+sidebar:
+  label: "Hypercare Plan Template"
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## When to use this
+
+Agree the hypercare plan in the LLD, finalise it the week before go-live, execute it for a fixed window after go-live (typically 4–8 weeks), and exit on a pre-agreed gate. Hypercare is *not* "we'll be around if you need us" — it is a structured, time-boxed, exit-criteria-driven plan.
+
+## Inputs you need from the customer
+
+| # | Input | Source | Format |
+|---|---|---|---|
+| 1 | Signed Definition of Done acceptance criteria | Closeout planning | Document |
+| 2 | Customer on-call rota for the hypercare window | Customer | Document |
+| 3 | SLO targets the workload must hold for exit | Customer | Numeric |
+| 4 | Named hypercare sponsor on the customer side | Customer | Contact |
+
+## Document structure
+
+<Steps>
+
+1. **Duration & window** — start date, end date, daily working hours, time zone, weekend coverage.
+
+2. **Team & rota** — your engineers on call, customer engineers shadowing, escalation tree, Microsoft support plan and severity routing.
+
+3. **Daily cadence** — 15-minute standup, KPI snapshot review, action log update.
+
+4. **Weekly cadence** — 1-hour steerco with customer sponsor: KPIs vs. SLO, open incidents, change requests, exit-gate readiness.
+
+5. **KPIs to track**
+
+   - Availability vs. SLO
+   - p95 latency vs. SLO
+   - RAG / model quality on the eval set (rolling)
+   - Content-filter / abuse-monitor signals
+   - Cost vs. budget
+   - Incident count by severity
+
+6. **Incident handling** — same flow as the runbook but with response-time SLAs tightened for the hypercare window.
+
+7. **Change control** — restricted in hypercare. Only blocking fixes; no new features. Document the policy and exceptions process.
+
+8. **Exit gate** — explicit, numerical, signed. Typical: 14 consecutive days without a Sev-1, all Sev-2s closed, SLOs met, customer on-call has handled at least one real incident unaided.
+
+9. **Handover at exit** — formal sign-off, transition to BAU support contract (or none), retrospective with lessons learned filed back into this repo.
+
+</Steps>
+
+## Output: customer-ready deliverable
+
+A signed hypercare plan with weekly KPI reports filed against the engagement, and a signed exit certificate that triggers final invoice and BAU transition.
+
+<Aside type="tip" title="Download the workfile">
+[📄 Hypercare plan template (.docx)](pathname:///templates/deliverables/hypercare-plan-template.docx)
+</Aside>
+
+## Reuse & contribute back
+
+<Aside type="tip">
+  Tuned a hypercare window length, or built a KPI dashboard that customers always ask for?
+  Open a PR against `src/content/docs/engagement/deliverables/hypercare-plan-template.mdx` with the `template` label.
+</Aside>

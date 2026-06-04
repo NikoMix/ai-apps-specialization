@@ -1,0 +1,62 @@
+name: Template / workfile improvement
+description: Propose a change to an engagement playbook page or a downloadable workfile (.docx/.pptx/.xlsx).
+title: "[template] <short summary>"
+labels: ["template", "engagement-playbook", "innersource"]
+body:
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Engagement phase
+      options:
+        - Qualification
+        - Discovery
+        - HLD
+        - LLD
+        - Build
+        - Hypercare
+        - Closeout
+        - Cross-phase
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Affected page or workfile
+      description: "Path under src/content/docs/engagement/ or public/templates/"
+      placeholder: "src/content/docs/engagement/discovery-workshop.mdx"
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: What's wrong or missing today?
+      description: Anonymise the engagement context if you reference one.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: checkboxes
+    id: sync
+    attributes:
+      label: Sync requirement
+      options:
+        - label: I will update both the MDX page and the matching generator script under scripts/workfiles/ so the download stays in sync
+          required: true
+  - type: dropdown
+    id: effort
+    attributes:
+      label: T-shirt effort
+      options: ["S (under 1h)", "M (half-day)", "L (multi-day)"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have not included any customer-identifying data
+          required: true
