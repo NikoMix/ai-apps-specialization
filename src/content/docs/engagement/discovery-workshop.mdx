@@ -10,18 +10,18 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## When to use this
 
-Run after a qualified customer is committed to a paid envisioning engagement, before any architecture work. The discovery workshop produces the decisions a HLD needs: prioritised use case, target architecture pattern, data strategy, and responsible-AI guardrails.
+Run after a qualified customer is committed to a paid envisioning engagement, before any architecture work. The discovery workshop produces the decisions a Solution Architecture Design needs: prioritised use case, target architecture pattern, data strategy, and responsible-AI guardrails.
 
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | Scored qualification questionnaire | Previous step | Document |
 | 2 | List of candidate use cases | Customer pre-read | List |
 | 3 | Inventory of candidate data sources | Customer pre-read | Spreadsheet |
 | 4 | Current Azure landing zone state | Customer architect | Diagram |
 | 5 | Responsible AI policy (if any) | Customer | Document |
-| 6 | Named workshop participants per day | Customer | RACI |
+| 6 | Named workshop participants per day | Customer | Responsibility Assignment Matrix (RACI) |
 
 ## Step-by-step
 
@@ -37,14 +37,14 @@ The workshop is **two days**, one architect-led and one business-led. Send the w
 
 4. **Day 2 afternoon — Responsible AI & operations.** Walk the Microsoft Responsible AI Standard at use-case level. Identify human-in-the-loop checkpoints, content filters, abuse monitoring, and the change-control flow for prompts and models.
 
-5. **Closeout.** Agree on the next deliverable (almost always: HLD + costed proposal) and the date you commit to deliver it.
+5. **Closeout.** Agree on the next deliverable (almost always: Solution Architecture Design + costed proposal) and the date you commit to deliver it.
 
 </Steps>
 
 ### Suggested agenda
 
 | Time | Day 1 | Day 2 |
-|---|---|---|
+| --- | --- | --- |
 | 09:00–10:30 | Welcome, scope, success criteria | Architecture pattern selection |
 | 10:45–12:30 | Use case framing & scoring | Service selection (compute, data, identity) |
 | 13:30–15:00 | Data inventory | Responsible AI walkthrough |
@@ -58,7 +58,7 @@ The workshop is **two days**, one architect-led and one business-led. Send the w
 
 ## Output: customer-ready deliverable
 
-A signed-off **Discovery Report** (use the HLD template's "Discovery Findings" section) containing:
+A signed-off **Discovery Report** (use the Solution Architecture Design template's "Discovery Findings" section) containing:
 
 - Prioritised use case + success metric
 - Target architecture pattern with chosen Azure services

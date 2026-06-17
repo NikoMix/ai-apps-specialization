@@ -1,6 +1,6 @@
 ---
 title: "B.3.1 – Certifications"
-description: Evidence requirements for control B.3.1 – required Azure certifications held by at least five individuals.
+description: Evidence requirements for control B.3.1 – the required Microsoft certifications held by at least five individuals.
 sidebar:
   label: "3.1 Certifications"
   order: 4
@@ -10,112 +10,63 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-The auditor verifies that your organisation has **at least five individuals** holding the required Microsoft certifications, with each of the four mandatory certifications held by at least one individual.
+The auditor confirms that the organisation has the required Microsoft-certified talent in-house and that each mandatory certification is currently active. They may also test whether the certified people are actually mapped to the AI delivery practice rather than sitting elsewhere in the business.
 
-**Typical questions:**
-- Can you provide verification links or transcripts for each certified individual?
-- Are all certifications currently active (not expired)?
-- Do the individuals work for your organisation (not contractors)?
-
----
-
-## Required Certifications
-
-| Certification | Exam Code | Minimum Holders | Renewal |
-|---|---|---|---|
-| **Azure Developer Associate** | AZ-204 | 1 | Annual renewal exam |
-| **DevOps Engineer Expert** | AZ-400 | 1 | Annual renewal exam |
-| **Azure AI Engineer Associate** | AI-102 | 1 | Annual renewal exam |
-| **Azure Cosmos DB Developer Specialty** | DP-420 | 1 | Annual renewal exam |
-
-<Aside>
-  The total of **five individuals** can be any combination. For example:
-  - 4 individuals each holding one unique certification + 1 individual holding any of the four = 5 ✅
-  - 1 individual holding all 4 + 4 individuals each holding 1 = 5 ✅ (but the multi-cert holder counts once)
-  - 5 individuals each holding 1 certification (with all 4 covered) = 5 ✅
-</Aside>
-
----
+Good evidence is a clean certification matrix backed by Microsoft Learn transcripts or verification links, plus an ownership view that shows how those people support sales, design, build, and operations.
 
 ## Required Evidence Checklist
 
 | # | Evidence Item | Accepted Formats | Status |
-|---|---|---|---|
-| 1 | **Microsoft Learn transcripts** for each individual (public share link or PDF export) | URL, PDF | ⬜ |
-| 2 | **Certification mapping table** (Name → Cert → Expiry Date → Evidence link) | Excel, PDF | ⬜ |
-| 3 | **Employment confirmation** for each certified individual *(if auditor requests)* | HR letter, payslip stub, contract summary | ⬜ |
+| --- | --- | --- | --- |
+| 1 | Microsoft Learn transcript or public verification link for each individual | URL, PDF | ⬜ |
+| 2 | Certification matrix mapping people, role, certification, issue date, and expiry date | Excel, PDF | ⬜ |
+| 3 | Employment confirmation for each individual if requested | HR letter, contract summary | ⬜ |
+| 4 | Coverage summary proving each required certification is present and at least five people are counted | Excel, PDF | ⬜ |
 
----
+## Implementation Guidance
 
-## Certification Mapping Table
+### Build the certification matrix
 
-Complete and submit this table:
+- List every qualifying person once, even if they hold several certifications, then map which requirement each certification satisfies.
+- Capture issue date, expiry date, and the direct evidence link in the same worksheet.
+- Mark any person whose certification expires within the next 90 days and schedule renewal immediately.
 
-| # | Full Name | Role / Title | Certification | Exam Code | Issue Date | Expiry Date | Transcript / Verification Link |
-|---|---|---|---|---|---|---|---|
-| 1 | | | Azure Developer Associate | AZ-204 | | | |
-| 2 | | | DevOps Engineer Expert | AZ-400 | | | |
-| 3 | | | Azure AI Engineer Associate | AI-102 | | | |
-| 4 | | | Azure Cosmos DB Developer Specialty | DP-420 | | | |
-| 5 | | | *(any of the four above)* | | | | |
-| 6+ | | | *(optional additional)* | | | | |
+### Connect certifications to delivery
 
-<Aside type="tip">
-  Individuals can share their Microsoft Learn public profile at:
-  `https://learn.microsoft.com/en-us/users/[username]/transcript/[transcript-id]`
-  
-  Alternatively, export the transcript as PDF from Microsoft Learn → Profile → Transcript → Download.
-</Aside>
+- Identify which certified people play architectural, engineering, DevOps, and AI workload roles in customer engagements.
+- Use the same names across the organisation chart, case studies, and key personnel list so the auditor can trace capability.
+- Keep a shadow plan for coverage if one person is on leave or leaves the business close to audit.
 
----
+### Close gaps quickly
 
-## Certification Validity
+- Prioritise DP-420 early because it is often the least common requirement in AI-focused teams.
+- Use Microsoft Learn training paths and internal lab exercises as part of the readiness plan.
+- Freeze evidence as PDF right after checking transcript visibility so permissions do not drift before audit.
 
-| Certification | Exam | Renewal Method | Renewal Window |
-|---|---|---|---|
-| Azure Developer Associate | AZ-204 | Free online renewal assessment on Microsoft Learn | 6 months before expiry |
-| DevOps Engineer Expert | AZ-400 | Free online renewal assessment | 6 months before expiry |
-| Azure AI Engineer Associate | AI-102 | Free online renewal assessment | 6 months before expiry |
-| Azure Cosmos DB Developer | DP-420 | Free online renewal assessment | 6 months before expiry |
+## Resources
 
-<Aside type="caution">
-  Certifications must be **active at the time of audit**. Check expiry dates now and schedule
-  renewal assessments for anyone expiring within 3 months.
-</Aside>
+- [Azure AI Engineer Associate certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
+- [Azure Developer Associate certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/)
+- [DevOps Engineer Expert certification](https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/)
+- [Azure Cosmos DB Developer Specialty certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-cosmos-db-developer-specialty/)
 
----
+## Samples
 
-## Study Resources for Gaps
-
-If your team needs to close certification gaps:
-
-| Certification | Official Learning Path | Estimated Study Time |
-|---|---|---|
-| AZ-204 | [Develop solutions for Microsoft Azure](https://learn.microsoft.com/en-us/training/paths/create-azure-app-with-net-core/) | 40–60 hours |
-| AZ-400 | [DevOps Engineer Expert paths](https://learn.microsoft.com/en-us/certifications/devops-engineer/) | 40–60 hours |
-| AI-102 | [AI Engineer Associate learning path](https://learn.microsoft.com/en-us/training/paths/provision-deploy-azure-ai-services/) | 30–50 hours |
-| DP-420 | [Cosmos DB Developer Specialty path](https://learn.microsoft.com/en-us/certifications/azure-cosmos-db-developer-specialty/) | 30–50 hours |
-
----
+- [Azure-Samples/openai](https://github.com/Azure-Samples/openai)
+- [Azure-Samples/rag-postgres-openai-python](https://github.com/Azure-Samples/rag-postgres-openai-python)
+- [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel)
 
 ## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| AZ-204 holder transcript | | | ⬜ | |
-| AZ-400 holder transcript | | | ⬜ | |
-| AI-102 holder transcript | | | ⬜ | |
-| DP-420 holder transcript | | | ⬜ | |
-| 5th individual transcript | | | ⬜ | |
-| Certification mapping table | | | ⬜ | |
+| --- | --- | --- | --- | --- |
+| Certification matrix |  |  | ⬜ |  |
+| AZ-204 evidence |  |  | ⬜ |  |
+| AZ-400 evidence |  |  | ⬜ |  |
+| AI-102 evidence |  |  | ⬜ |  |
+| DP-420 evidence |  |  | ⬜ |  |
+| Fifth individual evidence |  |  | ⬜ |  |
 
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| Missing DP-420 (Cosmos DB) | This is the least common cert — prioritise scheduling this exam for an eligible team member |
-| Certifications held by contractors, not employees | Confirm employment status; some auditors accept long-term contractors with a letter from HR |
-| Expired certifications | Complete the free Microsoft Learn renewal assessment immediately |
-| Transcripts set to private | Instruct individuals to set their Learn profile to public or export a PDF transcript |
+<Aside type="tip">
+  If one person satisfies multiple certification requirements, keep that person in the matrix once and use a separate coverage table to show how each mandatory certification is met.
+</Aside>

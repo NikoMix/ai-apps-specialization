@@ -1,8 +1,8 @@
 ---
-title: "Deliverable – Hypercare Plan Template"
-description: Hypercare plan template for an AI Applications on Microsoft Azure engagement post go-live.
+title: "Hypercare Plan Template"
+description: Structured hypercare plan template for AI Applications on Microsoft Azure go-live support.
 sidebar:
-  label: "Hypercare Plan Template"
+  label: "Hypercare Plan"
   order: 5
 ---
 
@@ -10,59 +10,94 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## When to use this
 
-Agree the hypercare plan in the LLD, finalise it the week before go-live, execute it for a fixed window after go-live (typically 4–8 weeks), and exit on a pre-agreed gate. Hypercare is *not* "we'll be around if you need us" — it is a structured, time-boxed, exit-criteria-driven plan.
+Finalise the hypercare plan before go-live and treat it as a time-boxed operational contract. Hypercare should define who is on point, which alerts matter, what the incident procedures are, what changes are allowed, and exactly how the team exits to Business as Usual support.
 
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
-| 1 | Signed Definition of Done acceptance criteria | Closeout planning | Document |
-| 2 | Customer on-call rota for the hypercare window | Customer | Document |
-| 3 | SLO targets the workload must hold for exit | Customer | Numeric |
-| 4 | Named hypercare sponsor on the customer side | Customer | Contact |
+| --- | --- | --- | --- |
+| 1 | Signed definition of done and go-live decision record | Steering group | PDF, meeting note |
+| 2 | Customer on-call rota and escalation contacts | Customer operations lead | Contact list |
+| 3 | Approved Service Level Objective and Service Level Agreement targets | Customer sponsor | Operations baseline |
+| 4 | Budget guardrails and quota limits for the first production month | Finance, platform team | Spreadsheet |
+| 5 | Named exit authority for hypercare closure | Customer sponsor | Governance note |
 
-## Document structure
+## Alert rules to configure
+
+| Alert | Signal | Threshold | Severity | Action |
+| --- | --- | --- | --- | --- |
+| High latency | Application Insights request duration p95 | > 3,000 ms for 5 min | Sev-2 | Page on-call engineer |
+| Token quota near exhaustion | Azure OpenAI quota utilization | > 85% | Sev-2 | Increase quota or add deployment |
+| Model inference errors | Azure OpenAI 429 / 5xx rate | > 5% requests in 5 min | Sev-1 | Failover to backup deployment |
+| Content filter rate spike | Azure OpenAI content filter rejections | > 10/min | Sev-2 | Review prompts, alert Responsible AI lead |
+| App availability drop | App Service / Azure Container Apps availability | < 99% over 5 min | Sev-1 | Escalate to customer and Microsoft |
+| Embedding index staleness | Indexer last run time | > 24 hrs since last success | Sev-3 | Check indexer pipeline |
+| Cost overrun | Daily spend vs. budget | > 120% of daily budget | Sev-2 | Review model usage, throttle if needed |
+
+## Incident Procedures
 
 <Steps>
-
-1. **Duration & window** — start date, end date, daily working hours, time zone, weekend coverage.
-
-2. **Team & rota** — your engineers on call, customer engineers shadowing, escalation tree, Microsoft support plan and severity routing.
-
-3. **Daily cadence** — 15-minute standup, KPI snapshot review, action log update.
-
-4. **Weekly cadence** — 1-hour steerco with customer sponsor: KPIs vs. SLO, open incidents, change requests, exit-gate readiness.
-
-5. **KPIs to track**
-
-   - Availability vs. SLO
-   - p95 latency vs. SLO
-   - RAG / model quality on the eval set (rolling)
-   - Content-filter / abuse-monitor signals
-   - Cost vs. budget
-   - Incident count by severity
-
-6. **Incident handling** — same flow as the runbook but with response-time SLAs tightened for the hypercare window.
-
-7. **Change control** — restricted in hypercare. Only blocking fixes; no new features. Document the policy and exceptions process.
-
-8. **Exit gate** — explicit, numerical, signed. Typical: 14 consecutive days without a Sev-1, all Sev-2s closed, SLOs met, customer on-call has handled at least one real incident unaided.
-
-9. **Handover at exit** — formal sign-off, transition to BAU support contract (or none), retrospective with lessons learned filed back into this repo.
-
+1. **Acknowledge** — the on-call engineer acknowledges the alert, opens the incident record, and confirms customer impact within the response target.
+2. **Stabilise** — apply the relevant first-action procedure: failover, quota change, rollback, traffic shaping, or comms-only status update.
+3. **Communicate** — notify the customer bridge, update the incident channel, and record what is known, unknown, and next update time.
+4. **Escalate** — raise to the named technical lead, customer owner, or Microsoft support path based on severity and elapsed time.
+5. **Recover** — validate service recovery against the Service Level Objective target and document whether follow-up remediation is needed.
+6. **Review** — complete the post-incident review inside the hypercare tracker and decide whether the exit gate clock resets.
 </Steps>
+
+## Action Guides
+
+### How to fail over between Azure OpenAI deployments
+
+- Confirm the primary deployment is the source of failures rather than an upstream networking or application issue.
+- Switch traffic using the application configuration flag, deployment routing rule, or API Management policy defined in the Detailed Technical Design.
+- Re-run the smoke tests for response quality, latency, and content filtering before declaring recovery.
+- Log the time to fail over and any behaviour difference between the primary and backup deployment.
+
+### How to update content filter policies
+
+- Review the rejection spike together with the Responsible AI lead before changing the filter level.
+- Compare recent prompts and user inputs to identify whether the spike is user behaviour, prompt regression, or a policy configuration issue.
+- Apply the approved policy change in the lower environment first when time allows, then promote using the documented change path.
+- Capture the rationale, approver, and rollback plan in the incident record.
+
+### How to adjust model quotas
+
+- Check actual token consumption, concurrency, and retry behaviour before requesting higher quota.
+- Validate whether a secondary deployment, rate limiting, or prompt reduction would solve the issue faster than a quota request.
+- If quota must change, record who approved the spend implication and update the daily cost tracker.
+- After the change, re-baseline the alert threshold so the team does not page unnecessarily.
+
+### How to roll back a prompt change
+
+- Revert to the last approved prompt version from source control or the prompt registry.
+- Re-run the evaluation suite or minimum smoke set defined in the runbook.
+- Validate that the rollback does not introduce a new responsible-AI issue or break downstream parsing.
+- Record the bad change, rollback timestamp, and follow-up action owner.
+
+### How to extend the hypercare window
+
+- Trigger the extension review if exit criteria are not met, if a Sev-1 occurred inside the last 14 days, or if the customer team still cannot operate unaided.
+- Present the KPI trend, open incident backlog, and specific risks that justify extension.
+- Agree the new end date, any commercial change, and any temporary support scope adjustments.
+- Publish an updated hypercare plan version and confirm who re-approves the exit gate.
+
+## Exit Gate checklist
+
+| Exit criterion | Minimum threshold | Status |
+| --- | --- | --- |
+| Sev-1 incidents | 14 consecutive days with zero Sev-1 incidents | ⬜ |
+| Sev-2 backlog | All Sev-2 incidents closed or accepted by customer risk owner | ⬜ |
+| Availability | Meets or exceeds the agreed Service Level Objective target for the final 14 days | ⬜ |
+| Latency | p95 latency within agreed threshold for the final 14 days | ⬜ |
+| Customer capability | Customer team handled at least one incident drill or real incident without partner-led execution | ⬜ |
+| Documentation | Runbook, dashboard links, and support contacts are complete and accepted | ⬜ |
+| Sponsor sign-off | Customer sponsor approves transition to Business as Usual support | ⬜ |
 
 ## Output: customer-ready deliverable
 
-A signed hypercare plan with weekly KPI reports filed against the engagement, and a signed exit certificate that triggers final invoice and BAU transition.
+Deliver a signed hypercare plan, configured alert catalogue, weekly KPI report template, incident log, and a hypercare exit certificate that references the accepted exit gate.
 
 <Aside type="tip" title="Download the workfile">
 [📄 Hypercare plan template (.docx)](pathname:///templates/deliverables/hypercare-plan-template.docx)
-</Aside>
-
-## Reuse & contribute back
-
-<Aside type="tip">
-  Tuned a hypercare window length, or built a KPI dashboard that customers always ask for?
-  Open a PR against `src/content/docs/engagement/deliverables/hypercare-plan-template.mdx` with the `template` label.
 </Aside>

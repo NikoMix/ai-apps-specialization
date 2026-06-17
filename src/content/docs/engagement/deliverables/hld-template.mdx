@@ -1,8 +1,8 @@
 ---
-title: "Deliverable – High-Level Design (HLD) Template"
-description: HLD template for an AI Applications on Microsoft Azure engagement.
+title: "Solution Architecture Design Template"
+description: Solution Architecture Design template for an AI Applications on Microsoft Azure engagement.
 sidebar:
-  label: "HLD Template"
+  label: "Architecture Design"
   order: 1
 ---
 
@@ -10,62 +10,35 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## When to use this
 
-Produce one HLD per engagement, immediately after the discovery workshop. The HLD is the customer's first signable architectural artefact and the basis for the LLD and the WAF assessment.
+Produce one Solution Architecture Design per engagement immediately after discovery. It is the first signable architecture artefact for the customer and the baseline for the Detailed Technical Design and the Well-Architected Framework assessment.
 
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
-| 1 | Discovery report (use case, data, RAI guardrails) | Discovery workshop | Document |
-| 2 | Non-functional requirements (SLO, throughput, cost) | Customer | Document |
-| 3 | Identity & networking constraints | Customer | Document |
-| 4 | Compliance scope (e.g. ISO 27001, GDPR, HIPAA) | Customer compliance | Document |
+| --- | --- | --- | --- |
+| 1 | Discovery report with use case, data, and responsible-AI guardrails | Discovery workshop | Document |
+| 2 | Non-functional requirements including Service Level Objective targets, throughput, and cost envelope | Customer | Document |
+| 3 | Identity and networking constraints | Customer | Document |
+| 4 | Compliance scope such as ISO 27001, GDPR, or HIPAA | Customer compliance | Document |
 
 ## Document structure
 
-The downloadable template ships with these sections — keep them all, even if some are short, so the HLD shape is consistent across engagements.
-
 <Steps>
-
-1. **Cover & document control** — version, authors, reviewers, sign-off block.
-
-2. **Executive summary** — the use case in one paragraph, the chosen reference architecture pattern, the headline cost and timeline.
-
-3. **Business context & success metrics** — what the AI app will measurably change.
-
-4. **Scope** — in / out / deferred. Be explicit about what *isn't* in the engagement.
-
-5. **Solution architecture** — block diagram, narrative, chosen Azure services, justification for each service vs. alternatives.
-
-6. **Data architecture** — sources, classification, flows, retention, residency.
-
-7. **Identity & access** — Entra ID model, managed identities, RBAC scopes, conditional access posture.
-
-8. **Networking** — public vs. private, private endpoints, egress controls, DNS, WAF.
-
-9. **Responsible AI** — harms identification, mitigations (system prompt, content filters, abuse monitoring), human-in-the-loop checkpoints, transparency notes.
-
-10. **Non-functional requirements** — availability, latency, throughput, RPO / RTO, scalability strategy, cost envelope.
-
-11. **Operations** — observability, alerting, on-call, runbook reference, change control for prompts and models.
-
-12. **Risks & assumptions** — register with owner and mitigation.
-
-13. **Phased delivery plan** — milestones, gates, deliverables per phase.
-
+1. **Cover and document control** — version, authors, reviewers, and sign-off block.
+2. **Executive summary** — business outcome, chosen pattern, delivery approach, and headline costs.
+3. **Business context and success metrics** — what the AI application changes and how value is measured.
+4. **Scope and assumptions** — in-scope, out-of-scope, and deferred work.
+5. **Solution architecture** — Azure services, integration pattern, security posture, and justification.
+6. **Data architecture** — sources, classification, retention, residency, and grounding path.
+7. **Responsible AI approach** — harms, mitigations, human review, and transparency.
+8. **Operations and support model** — observability, release controls, and incident ownership.
+9. **Risks and phased plan** — risks, dependencies, milestones, and gate decisions.
 </Steps>
 
 ## Output: customer-ready deliverable
 
-A signed HLD in PDF, version-controlled in the engagement folder, with a one-page summary slide that the customer sponsor can take to their steerco.
+A signed Solution Architecture Design in PDF, stored with the engagement record and linked to the supporting architecture decisions and assessments.
 
 <Aside type="tip" title="Download the workfile">
-[📄 HLD template (.docx)](pathname:///templates/deliverables/hld-template.docx)
-</Aside>
-
-## Reuse & contribute back
-
-<Aside type="tip">
-  Found a section auditors or customers always push back on, or a diagram convention that scales better?
-  Open a PR against `src/content/docs/engagement/deliverables/hld-template.mdx` with the `template` label.
+[📄 Solution Architecture Design template (.docx)](pathname:///templates/deliverables/hld-template.docx)
 </Aside>

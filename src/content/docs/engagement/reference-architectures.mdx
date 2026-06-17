@@ -10,12 +10,12 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## When to use this
 
-Use during the discovery workshop's Day-2 architecture session to anchor the conversation in a known-good pattern, and again during HLD authoring to justify service selection. Every AI Apps engagement should map cleanly to one of the patterns below — if it does not, treat that as a risk and challenge the requirements.
+Use during the discovery workshop's Day-2 architecture session to anchor the conversation in a known-good pattern, and again during Solution Architecture Design authoring to justify service selection. Every AI Apps engagement should map cleanly to one of the patterns below — if it does not, treat that as a risk and challenge the requirements.
 
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | Prioritised use case from discovery | Discovery report | Document |
 | 2 | Latency / throughput expectations | Customer | Numeric |
 | 3 | Identity surface (internal users / external customers) | Customer | Text |
@@ -24,7 +24,7 @@ Use during the discovery workshop's Day-2 architecture session to anchor the con
 
 ## The patterns
 
-### Pattern 1 — RAG over enterprise documents
+### Pattern 1 — Retrieval-Augmented Generation (RAG) over enterprise documents
 
 **Use when** the customer wants grounded answers from their own documents (policies, manuals, contracts), with citations.
 
@@ -63,7 +63,7 @@ Use during the discovery workshop's Day-2 architecture session to anchor the con
 - Azure App Service (web app + WebSockets)
 - Azure OpenAI (streaming completions)
 - Azure Cosmos DB for NoSQL (conversation history, with TTL)
-- Azure Front Door (global routing, WAF)
+- Azure Front Door (global routing, Well-Architected Framework (WAF))
 - Microsoft Entra External ID (B2C scenarios)
 
 **Key design choices** — token streaming end-to-end, conversation context window strategy, per-user rate limiting, abuse monitoring.
@@ -85,7 +85,7 @@ Use during the discovery workshop's Day-2 architecture session to anchor the con
 ## Selection guide
 
 | Signal | Likely pattern |
-|---|---|
+| --- | --- |
 | "Answer questions from our PDFs" | Pattern 1 |
 | "Automate a multi-step process" | Pattern 2 |
 | "Embed chat in our existing app" | Pattern 3 |
@@ -93,11 +93,11 @@ Use during the discovery workshop's Day-2 architecture session to anchor the con
 
 ## Output: customer-ready deliverable
 
-A one-page architecture decision record (ADR) selecting the pattern, plus the chosen pattern's Visio / Excalidraw diagram folded into the HLD.
+A one-page architecture decision record (ADR) selecting the pattern, plus the chosen pattern's Visio / Excalidraw diagram folded into the Solution Architecture Design.
 
 <Aside type="tip">
   Microsoft maintains canonical architectures at [learn.microsoft.com/azure/architecture/ai-ml/](https://learn.microsoft.com/azure/architecture/ai-ml/).
-  Always link the HLD back to the exact reference architecture you adapted.
+  Always link the Solution Architecture Design back to the exact reference architecture you adapted.
 </Aside>
 
 ## Reuse & contribute back

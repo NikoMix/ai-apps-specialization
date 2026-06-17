@@ -1,114 +1,97 @@
 ---
 title: "B.1.1 – Azure AI Implementation Capability"
-description: Evidence requirements for control B.1.1 – technical capability to design and deliver AI solutions on Azure.
+description: Evidence requirements for control B.1.1 – proven capability to design, build, secure, and operate AI applications on Microsoft Azure.
 sidebar:
   label: "1.1 Azure AI Implementation"
   order: 1
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Card, CardGrid, Steps } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-The auditor verifies that your organisation has **demonstrated technical capability** in designing and delivering AI-powered applications on Microsoft Azure — not just knowledge, but practical delivery experience.
+The auditor is validating that your organisation can deliver production AI applications on Microsoft Azure, not just run proof-of-concept demos. They expect to see real solution delivery evidence spanning architecture, security, responsible AI, operations, and customer outcomes.
 
-**Typical questions:**
-- Can you demonstrate AI solution delivery on Azure with real customers?
-- What Azure AI services has your team used in production?
-- Do you have reference architectures and delivery assets?
+Strong evidence for this control shows repeatable delivery capability across the full lifecycle: discovery, solution architecture, build, evaluation, go-live, and operational handover. The best submissions combine customer case studies with concrete architecture artefacts, implementation standards, and reusable delivery assets.
 
----
+<CardGrid>
+  <Card title="Architecture credibility" icon="seti:azure">
+    Show Azure-native architectures that use the right services for orchestration, model hosting, search, storage, networking, identity, and observability.
+  </Card>
+  <Card title="Operational maturity" icon="material-symbols:monitoring-outline">
+    Prove that you can monitor latency, quota, quality, safety, and cost after go-live.
+  </Card>
+  <Card title="Responsible AI controls" icon="material-symbols:policy-outline">
+    Demonstrate prompt governance, evaluation, human review points, and content safety practices.
+  </Card>
+</CardGrid>
 
 ## Required Evidence Checklist
 
 | # | Evidence Item | Accepted Formats | Status |
-|---|---|---|---|
-| 1 | **Solution case studies** (at least 2, AI on Azure focused) | PDF, PowerPoint | ⬜ |
-| 2 | **Architecture diagrams** from delivered AI solutions | PDF, Visio, Draw.io | ⬜ |
-| 3 | **Service capability statement** listing Azure AI services your team delivers | PDF, Word | ⬜ |
-| 4 | **Sample deliverables** — e.g., HLD, LLD, deployment guide, runbook (anonymised) | PDF, Word | ⬜ |
-| 5 | **Azure AI service list** — specific services used in production (with customer mapping) | PDF, Excel | ⬜ |
+| --- | --- | --- | --- |
+| 1 | At least two customer case studies for AI applications delivered on Microsoft Azure | PDF, PowerPoint | ⬜ |
+| 2 | Solution architecture diagrams showing Azure AI services, data flows, integration points, and security boundaries | PDF, Visio, draw.io | ⬜ |
+| 3 | Capability statement describing the Azure AI services, accelerators, and delivery roles your team can provide | PDF, Word | ⬜ |
+| 4 | Sample anonymised deliverables such as Solution Architecture Design, Detailed Technical Design, runbook, evaluation plan, or go-live checklist | PDF, Word | ⬜ |
+| 5 | Service inventory mapping each case study to Azure services used in production | PDF, Excel | ⬜ |
+| 6 | Responsible AI evidence such as safety design, evaluation plan, red-team findings, or human-in-the-loop controls | PDF, Word | ⬜ |
+
+## Implementation Guidance
+
+### What “good” looks like
+
+- Use case studies that clearly state the business problem, the Azure services selected, the operating model, and the measurable outcome.
+- Show how the workload is secured: Microsoft Entra ID, managed identities, Azure Key Vault, network isolation, logging boundaries, and access controls.
+- Demonstrate how you evaluate and operate the solution after go-live, especially for Retrieval-Augmented Generation (RAG), agentic workflows, prompt changes, and content filtering.
+- Reuse the same terminology across your architecture diagram, Solution Architecture Design, runbook, and evidence tracker so the auditor can follow the control story quickly.
+
+### Architecture patterns to evidence
+
+<Steps>
+1. **Front door and orchestration** — show how users or channels enter the system through Azure Front Door, App Service, Azure Container Apps, or Azure Kubernetes Service (AKS), then how application services orchestrate prompts, tools, or model calls.
+2. **Model and inference layer** — identify Azure OpenAI deployments, model versions, fallback strategy, throttling behaviour, and whether you use pay-as-you-go or Provisioned Throughput Units (PTU).
+3. **Knowledge and grounding layer** — show Azure AI Search, Cosmos DB, Azure SQL, PostgreSQL, or Fabric where relevant, including indexing and update flows.
+4. **Security and governance** — include Microsoft Entra ID, managed identities, Key Vault, private endpoints, content safety, and least-privilege role assignments.
+5. **Observability and operations** — show Application Insights, Azure Monitor, log analytics, quota alerts, evaluation pipelines, and incident response hooks.
+</Steps>
+
+### Real Azure guidance the auditor will expect you to understand
+
+- **Azure OpenAI Service**: document model choices, deployment names, backup deployments, quota assumptions, and prompt or system-message change control.
+- **Azure AI Foundry**: show how you manage experimentation, evaluation, prompt flows, and reusable project assets when you use Foundry in the delivery model.
+- **Azure AI Search**: explain the chunking, indexing, freshness, access filtering, and relevance-tuning approach for Retrieval-Augmented Generation workloads.
+- **Application platform**: explain whether you chose App Service, Azure Container Apps, or AKS, and why that hosting choice fits scale, networking, and operations needs.
+- **Responsible AI**: include prompt-injection mitigations, content filter design, human review checkpoints, and post-deployment monitoring for quality and harm signals.
 
 <Aside type="tip">
-  Case studies should explicitly reference the Azure AI services used (e.g., Azure OpenAI, Azure AI
-  Search, Azure Machine Learning). Generic "AI project" descriptions without Azure service references
-  are weak evidence.
+  Your strongest evidence package is usually one architecture-heavy flagship customer plus one second customer that proves the capability is repeatable in a different industry, workload type, or integration pattern.
 </Aside>
 
----
+## Resources
 
-## Evidence Guidance
+- [Azure Architecture Center AI and machine learning](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+- [Azure OpenAI architecture patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/openai/)
+- [Retrieval-Augmented Generation solution design and evaluation guide](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+- [Agentic architecture patterns overview](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/agentic-architectures-overview)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- [Responsible AI guidance for Azure AI services](https://learn.microsoft.com/en-us/azure/ai-services/responsible-use-of-ai-overview)
 
-### Case Study Structure
+## Samples
 
-Each case study should include:
-
-```markdown
-## Customer: [Customer A / Full name with consent]
-**Industry:** [e.g., Financial Services]
-**Challenge:** [Brief description of the business problem]
-**Solution:**
-- Azure services used: [Azure OpenAI, Azure AI Search, AKS, Azure SQL...]
-- Architecture overview: [2–3 sentences]
-- Integration points: [e.g., integrated with Dynamics 365, Power Platform...]
-**Outcome:**
-- Business outcome: [e.g., 40% reduction in manual processing time]
-- Technical metrics: [e.g., &lt; 2s inference latency at 99th percentile]
-**Delivery timeline:** [e.g., 16 weeks from kickoff to go-live]
-**Your team's role:** [Lead architect + delivery management / Implementation partner]
-```
-
-### Architecture Diagrams
-
-Diagrams should clearly show:
-- Azure AI services (OpenAI, AI Search, ML Studio, etc.)
-- Data flow between components
-- Integration with existing customer systems
-- Security and identity components (Entra ID, Key Vault, Private Endpoints)
-
-**Tools:** Microsoft Visio, draw.io, Lucidchart, Azure Architecture Center templates.
-
-### Capability Statement
-
-A 1–2 page document listing:
-- Azure AI services your team is qualified to deliver
-- Number of completed projects per service area
-- Key team members and their relevant certifications
-- Partner competencies and designations
-
----
-
-## Azure AI Services Reference
-
-Include evidence covering services from the eligible strategic pillars:
-
-| Pillar | Key Services |
-|---|---|
-| Azure OpenAI | GPT-4o, GPT-4, Embeddings, DALL-E |
-| Rest of Azure AI | Azure AI Search, Azure AI Document Intelligence, Azure AI Vision, Azure AI Speech, Azure AI Language |
-| Azure Machine Learning | Automated ML, Designer, MLOps pipelines |
-| 3P GPU | NVIDIA GPU workloads on Azure NC/ND series VMs |
-
----
+- [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [Azure-Samples/contoso-chat](https://github.com/Azure-Samples/contoso-chat)
+- [Azure-Samples/openai](https://github.com/Azure-Samples/openai)
+- [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel)
+- [Azure-Samples/rag-postgres-openai-python](https://github.com/Azure-Samples/rag-postgres-openai-python)
 
 ## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| Case study 1 | | | ⬜ | |
-| Case study 2 | | | ⬜ | |
-| Architecture diagram 1 | | | ⬜ | |
-| Architecture diagram 2 | | | ⬜ | |
-| Capability statement | | | ⬜ | |
-| Sample deliverables (anonymised) | | | ⬜ | |
-
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| Case studies exist but don't mention Azure services | Rewrite or annotate to explicitly list the Azure services used |
-| All case studies are from one industry | Identify a customer from a different industry — even a small PoC counts |
-| Architecture diagrams are high-level only | Add a more detailed view showing Azure service connections and data flows |
-| No referenceable customer outcomes | Use internally measurable outcomes (e.g., cost savings, time savings) if customer KPIs aren't available |
+| --- | --- | --- | --- | --- |
+| Case study 1 |  |  | ⬜ |  |
+| Case study 2 |  |  | ⬜ |  |
+| Architecture diagram set |  |  | ⬜ |  |
+| Capability statement |  |  | ⬜ |  |
+| Sample delivery artefacts |  |  | ⬜ |  |
+| Responsible AI evidence |  |  | ⬜ |  |

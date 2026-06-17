@@ -1,15 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// ─── Site URL & base path ─────────────────────────────────────────────────────
-// On GitHub Actions, GITHUB_REPOSITORY is "owner/repo" and GITHUB_REPOSITORY_OWNER
-// is just "owner". We derive both `site` and `base` from these so a freshly-forked
-// template builds correctly with no manual configuration.
-//
-// You can override either by setting ASTRO_SITE / ASTRO_BASE as repo variables.
-//
-// Special case: user/org pages (repo named `<owner>.github.io`) are served from
-// the domain root and must use base "/".
 const repo = process.env.GITHUB_REPOSITORY ?? 'YOUR_ORG/ai-apps-specialization';
 const [owner, repoName] = repo.split('/');
 const isUserOrOrgPage = repoName?.toLowerCase() === `${owner?.toLowerCase()}.github.io`;
@@ -19,7 +10,6 @@ const site =
   (isUserOrOrgPage ? `https://${owner}.github.io` : `https://${owner}.github.io/${repoName}`);
 
 const base = process.env.ASTRO_BASE ?? (isUserOrOrgPage ? '/' : `/${repoName}/`);
-
 const githubUrl = process.env.ASTRO_GITHUB_URL ?? `https://github.com/${repo}`;
 
 export default defineConfig({
@@ -52,7 +42,28 @@ export default defineConfig({
         },
         {
           label: 'Engagement Playbook',
-          items: [{ autogenerate: { directory: 'engagement' } }],
+          items: [
+            { label: 'Qualification Questionnaire', link: '/engagement/qualification-questionnaire/' },
+            { label: 'Assessment Platform Inputs', link: '/engagement/assessment-platform-inputs/' },
+            { label: 'Discovery Workshop', link: '/engagement/discovery-workshop/' },
+            { label: 'Project Plan Template', link: '/engagement/project-plan/' },
+            { label: 'Microsoft Assessments', link: '/engagement/assessments/' },
+            { label: 'Well-Architected Framework Assessment', link: '/engagement/waf-assessment/' },
+            { label: 'Reference Architectures', link: '/engagement/reference-architectures/' },
+            { label: 'Resources and Samples', link: '/engagement/resources-and-samples/' },
+            { label: 'Definition of Done', link: '/engagement/definition-of-done/' },
+            { label: 'Offering One-Pager', link: '/engagement/offering-one-pager/' },
+            {
+              label: 'Deliverables',
+              items: [
+                { label: 'Architecture Design', link: '/engagement/deliverables/hld-template/' },
+                { label: 'Technical Design', link: '/engagement/deliverables/lld-template/' },
+                { label: 'Knowledge Transfer Plan', link: '/engagement/deliverables/kt-plan-template/' },
+                { label: 'Hypercare Plan', link: '/engagement/deliverables/hypercare-plan-template/' },
+                { label: 'Runbook Template', link: '/engagement/deliverables/runbook-template/' },
+              ],
+            },
+          ],
         },
         {
           label: 'Innersource',

@@ -1,137 +1,71 @@
 ---
 title: "B.4.1 – Audit Readiness"
-description: Evidence requirements for control B.4.1 – audit preparation, evidence package completeness, and pre-audit checklist.
+description: Evidence requirements for control B.4.1 – structured audit preparation, evidence packaging, and internal review before submission.
 sidebar:
   label: "4.1 Audit Readiness"
   order: 5
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-This control validates that your organisation approached the audit in a **structured, prepared manner** — not scrambled at the last minute. The auditor may ask about your internal preparation process and evidence organisation.
+This control tests whether the partner prepared for the audit in a deliberate, governed way. The auditor wants to see ownership, a complete evidence pack, and internal quality control before anything is submitted.
 
-**Typical questions:**
-- How was the evidence package prepared and organised?
-- Who was responsible for each area of evidence?
-- Was a pre-audit self-assessment conducted?
+A mature submission includes a self-assessment, a filing structure, evidence naming standards, and a named point of contact who can respond quickly when the auditor asks follow-up questions.
 
-<Aside type="tip">
-  This page doubles as your **internal pre-audit checklist** — work through it before submitting
-  your evidence package to the auditor.
-</Aside>
+## Required Evidence Checklist
 
----
+| # | Evidence Item | Accepted Formats | Status |
+| --- | --- | --- | --- |
+| 1 | Completed internal pre-audit checklist for Module A and Module B | Excel, PDF | ⬜ |
+| 2 | Evidence index mapping every control to every file submitted | Excel, PDF | ⬜ |
+| 3 | Submission folder structure or portal screenshot | Screenshot, PDF | ⬜ |
+| 4 | Internal review record or sign-off before submission | Email, Word, PDF | ⬜ |
+| 5 | Auditor communication plan with named owners | Word, PDF | ⬜ |
 
-## Pre-Audit Self-Assessment Checklist
+## Implementation Guidance
 
-### Module A – General Requirements
+### Organise the pack
 
-| Control | Evidence Ready? | Owner | Notes |
-|---|---|---|---|
-| A.1.1 Organisational Data | ⬜ | | |
-| A.1.2 Financial Documentation | ⬜ | | |
-| A.2.1 Service Delivery Methodology | ⬜ | | |
-| A.2.2 Quality Management | ⬜ | | |
-| A.3.1 Customer Satisfaction | ⬜ | | |
-| A.3.2 Complaint Handling | ⬜ | | |
-| A.3.3 Security & Privacy | ⬜ | | |
+- Use one folder per control and keep file names aligned to control references.
+- Create an evidence index that lists version, date, and a one-line explanation for every file.
+- Store raw exports separately from annotated or redacted copies so nothing is lost if challenged.
 
-### Module B – AI Apps Specific
+### Run an internal audit
 
-| Control | Evidence Ready? | Owner | Notes |
-|---|---|---|---|
-| B.1.1 Azure AI Implementation | ⬜ | | |
-| B.2.1 ACR Performance | ⬜ | | |
-| B.2.2 Customer Diversity | ⬜ | | |
-| B.3.1 Certifications | ⬜ | | |
-| B.4.2 Partner Onboarding | ⬜ | | |
+- Walk every control as if you were the auditor and ask whether the evidence is complete, current, and understandable without verbal explanation.
+- Check that dates, document owners, and versions are visible on every core artefact.
+- Assign a single owner for each follow-up response so the auditor receives fast, consistent answers.
 
----
+### Prepare for questions
 
-## Evidence Package Organisation
+- Have the delivery lead and technical lead review the full pack before submission.
+- Keep a gap log and remediation owner list in case the auditor requests clarifications.
+- Treat the evidence package like a deliverable: version it, freeze it, and record what changed after each submission round.
 
-Structure your evidence submission as follows:
+## Resources
 
-```
-📁 Evidence Package – [Your Company Name] – AI Apps Specialization
-├── 📁 Module A – General Requirements
-│   ├── 📁 A1.1 – Organisational Data
-│   │   ├── A1.1_Certificate_of_Incorporation.pdf
-│   │   ├── A1.1_Org_Chart_v2.pdf
-│   │   └── A1.1_Key_Personnel_List.pdf
-│   ├── 📁 A1.2 – Financial Documentation
-│   │   ├── A1.2_Financial_Statements_2024.pdf
-│   │   └── A1.2_Professional_Indemnity_Certificate.pdf
-│   └── ... (one folder per control)
-├── 📁 Module B – AI Apps Specific
-│   ├── 📁 B1.1 – Azure AI Implementation
-│   │   ├── B1.1_Case_Study_Customer_A.pdf
-│   │   └── B1.1_Architecture_Diagram.pdf
-│   └── ... (one folder per control)
-└── 📄 Evidence_Index.xlsx
-```
+- [Azure Architecture Center AI guidance](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+- [Azure Well-Architected Framework for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/)
+- [Microsoft assessments catalog](https://learn.microsoft.com/en-us/assessments/)
 
-### Evidence Index (required)
+## Samples
 
-Create a master index file mapping each control to its evidence files:
+- [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel)
+- [microsoft/finops-toolkit](https://github.com/microsoft/finops-toolkit)
 
-| Control | Evidence File | Version | Date | Notes |
-|---|---|---|---|---|
-| A.1.1 | A1.1_Certificate_of_Incorporation.pdf | 1.0 | 2024-01-15 | Extracted from Companies House |
-| A.1.1 | A1.1_Org_Chart_v2.pdf | 2.0 | 2024-11-01 | Updated Nov 2024 |
-| ... | | | | |
-
----
-
-## Evidence Quality Standards
-
-All submitted documents should meet these standards:
-
-| Standard | Requirement |
-|---|---|
-| **Format** | PDF preferred; Excel/Word accepted for tracker documents |
-| **File naming** | `[ControlRef]_[DocumentType]_[Version].pdf` |
-| **Date visibility** | All documents must show a creation or review date |
-| **Version control** | Documents should have a version number or date |
-| **Completeness** | No broken links, missing pages, or placeholder text |
-| **Anonymisation** | Customer names redacted where required |
-
----
-
-## Submission Steps
-
-<Steps>
-1. Complete all evidence for each control using the Module A and B pages in this guide
-2. Run the pre-audit self-assessment checklist (above)
-3. Package evidence into the folder structure above
-4. Create the Evidence Index spreadsheet
-5. Conduct an internal review with your Delivery Lead and Technical Lead
-6. Submit the package to the auditor via their specified channel (SharePoint link, email, or portal)
-7. Confirm receipt with the auditor
-</Steps>
-
----
-
-## Evidence Status for This Control
+## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| Pre-audit self-assessment completed | | | ⬜ | |
-| Evidence package folder created | | | ⬜ | |
-| Evidence Index spreadsheet | | | ⬜ | |
-| Internal review completed | | | ⬜ | |
-| Submission to auditor | | | ⬜ | |
-| Auditor receipt confirmed | | | ⬜ | |
+| --- | --- | --- | --- | --- |
+| Pre-audit checklist |  |  | ⬜ |  |
+| Evidence index |  |  | ⬜ |  |
+| Folder structure or portal evidence |  |  | ⬜ |  |
+| Internal review sign-off |  |  | ⬜ |  |
+| Auditor communication plan |  |  | ⬜ |  |
 
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| Evidence submitted without an index | Create a simple Excel index before re-submission |
-| Mixed file names with no control references | Rename all files to follow the `[ControlRef]_[Type]_[Version]` convention |
-| Internal review not completed | Schedule a 2-hour evidence review session before submission |
-| Submission channel not confirmed | Confirm with auditor at kickoff call; don't assume email is acceptable |
+<Aside type="tip">
+  The evidence index is often the difference between a smooth review and repeated clarification cycles. Keep it current and visible from the root of the submission.
+</Aside>

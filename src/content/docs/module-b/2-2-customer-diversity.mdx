@@ -1,6 +1,6 @@
 ---
 title: "B.2.2 – Customer Diversity"
-description: Evidence requirements for control B.2.2 – at least three unique customers contributing ACR across eligible strategic pillars.
+description: Evidence requirements for control B.2.2 – at least three unique customers contributing qualifying Azure Consumed Revenue.
 sidebar:
   label: "2.2 Customer Diversity"
   order: 3
@@ -10,92 +10,61 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-The auditor verifies that your organisation has **at least three unique customers** contributing to ACR in the last three months from the eligible strategic pillars — demonstrating breadth of customer reach, not just depth with a single client.
+The auditor verifies that at least three unique customers contribute to the qualifying Azure Consumed Revenue window, proving market breadth rather than concentration in one flagship account.
 
-**Typical questions:**
-- How many unique customers contribute to your qualifying ACR?
-- Are all three using eligible association types (DPOR, PAL, CSP)?
-- Can you demonstrate diversity across industries or workload types?
-
----
+They also want to see that those customers are backed by eligible association types and that the contribution can be traced to the same qualifying pillars used for the Azure Consumed Revenue thresholds.
 
 ## Required Evidence Checklist
 
 | # | Evidence Item | Accepted Formats | Status |
-|---|---|---|---|
-| 1 | **Customer list with ACR contributions** — at least 3 unique customers | Excel, PDF | ⬜ |
-| 2 | **Association type evidence per customer** — DPOR, PAL, or CSP | PDF, Screenshots | ⬜ |
-| 3 | **Pillar alignment per customer** — which eligible pillar each customer contributes to | Excel, PDF | ⬜ |
+| --- | --- | --- | --- |
+| 1 | Customer diversity table with at least three unique customers | Excel, PDF | ⬜ |
+| 2 | Association type evidence for each counted customer | PDF, screenshot | ⬜ |
+| 3 | Pillar alignment per customer showing where the qualifying revenue sits | Excel, PDF | ⬜ |
+| 4 | Optional industry or workload summary to demonstrate breadth | Excel, PDF | ⬜ |
 
-<Aside>
-  **Eligible Association Types:**
-  - Digital Partner of Record (DPOR)
-  - Partner Admin Link (PAL)
-  - Cloud Solution Provider (CSP)
-</Aside>
+## Implementation Guidance
 
----
+### Create the customer evidence table
 
-## Eligible Strategic Pillars
+- Use consistent customer identifiers so the same account can be matched across revenue, case studies, and references.
+- Show the association type for every counted customer and note if one customer spans multiple pillars.
+- If you anonymise customer names, keep the anonymisation consistent across the full evidence package.
 
-A customer counts toward the diversity requirement if they contribute ACR in **any** of the following pillars:
+### Validate uniqueness
 
-| Module | Eligible Pillars |
-|---|---|
-| AI | Rest of Azure AI, Azure OpenAI, 3P GPU |
-| App Platform | App Platform Services, Container Services, Serverless and Supporting App Services, Integration Services, Developer Services and Platform, GitHub Copilot |
-| Data | Modern DB, MySQL and PostgreSQL PaaS, Azure SQL Core, Fabric F SKU |
+- Count customers, not subscriptions or association records; multiple subscriptions for one customer still count once.
+- Cross-check the audit period carefully because a customer outside the three-month window cannot be included.
+- Use the Partner Center customer view to prove the contribution source before exporting the final table.
 
----
+### Use diversity strategically
 
-## Customer Diversity Mapping Table
+- Where possible, align the three customers with different industries or workload types to show delivery breadth.
+- Link customer diversity evidence to case studies or references so the control supports the overall partner story.
+- Keep a pipeline view of near-qualifying accounts in case the auditor questions whether a customer truly counts.
 
-Prepare and submit this table as evidence:
+## Resources
 
-| Customer ID | Industry | Association Type | AI Pillar | App Platform Pillar | Data Pillar | ACR Contribution (USD) |
-|---|---|---|---|---|---|---|
-| Customer A | Financial Services | PAL | Azure OpenAI | AKS | Azure SQL | $X,XXX |
-| Customer B | Healthcare | DPOR | Rest of Azure AI | — | PostgreSQL PaaS | $X,XXX |
-| Customer C | Retail | CSP | — | App Service, Functions | Cosmos DB | $X,XXX |
-| **Minimum: 3 rows** | | | | | | |
+- [Partner Center customer insights guidance](https://learn.microsoft.com/en-us/partner-center/insights/reports-customer-dashboard)
+- [Partner Center association types and claims](https://learn.microsoft.com/en-us/partner-center/membership/partner-claiming)
+- [Specialization qualification overview](https://learn.microsoft.com/en-us/partner-center/specialization-get-started)
 
-<Aside type="tip">
-  Anonymise the table for the audit submission (Customer A, B, C) unless the auditor has confirmed
-  they will cross-check with Microsoft Partner Center data directly.
-</Aside>
+## Samples
 
----
-
-## How to Identify Unique Customer Contributions
-
-1. In Partner Center → Insights → Azure Revenue, switch to the **"By Customer"** view
-2. Filter by the last 3 months
-3. Identify customers contributing ACR in the eligible service categories
-4. Cross-reference with your DPOR/PAL/CSP association records
-
-<Aside type="caution">
-  If a customer has revenue under multiple association types, they still count as **one unique
-  customer**. Likewise, a customer contributing across multiple pillars counts as one.
-</Aside>
-
----
+- [Azure-Samples/contoso-chat](https://github.com/Azure-Samples/contoso-chat)
+- [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [Azure-Samples/rag-postgres-openai-python](https://github.com/Azure-Samples/rag-postgres-openai-python)
 
 ## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| Customer diversity table | | | ⬜ | |
-| Association type evidence (Customer 1) | | | ⬜ | |
-| Association type evidence (Customer 2) | | | ⬜ | |
-| Association type evidence (Customer 3) | | | ⬜ | |
+| --- | --- | --- | --- | --- |
+| Customer diversity table |  |  | ⬜ |  |
+| Customer 1 association evidence |  |  | ⬜ |  |
+| Customer 2 association evidence |  |  | ⬜ |  |
+| Customer 3 association evidence |  |  | ⬜ |  |
+| Industry or workload summary |  |  | ⬜ |  |
 
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| Only 1–2 customers meet the association criteria | Urgently establish DPOR or PAL links with additional customers where you deliver services |
-| ACR concentrated in one customer | Cannot be resolved short-term; plan to diversify customer base for the next ACR window |
-| Customer association records not exportable | Take screenshots from Partner Center's customer association views; annotate with customer IDs |
-| Revenue from ineligible services | Review the full eligible service list and ensure customer workloads are correctly categorised |
+<Aside type="tip">
+  Auditors are usually comfortable with anonymised customer labels if the mapping is internally consistent and the underlying Partner Center evidence is unambiguous.
+</Aside>

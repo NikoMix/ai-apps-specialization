@@ -1,8 +1,8 @@
 ---
-title: "Deliverable – Knowledge Transfer (KT) Plan Template"
-description: Knowledge transfer plan template for an AI Applications on Microsoft Azure engagement handover.
+title: "Knowledge Transfer Plan Template"
+description: Structured Knowledge Transfer plan template for AI Applications on Microsoft Azure engagements.
 sidebar:
-  label: "KT Plan Template"
+  label: "Knowledge Transfer Plan"
   order: 4
 ---
 
@@ -10,58 +10,76 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## When to use this
 
-Plan KT at the start of the build phase, not at the end. Execute KT in the last two sprints before hypercare. KT is what makes the difference between a customer who renews and a customer who calls you every week.
+Create the Knowledge Transfer plan during the build phase and baseline it before user acceptance testing starts. The plan should run through the final sprints, overlap go-live, and finish only after the receiving team can operate the workload without partner intervention.
 
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
-| 1 | Receiving team(s) and named individuals | Customer | RACI |
-| 2 | Receiving team's current skills baseline | Customer manager | Self-assessment |
-| 3 | Preferred KT format (workshop / pairing / recorded) | Customer | Text |
-| 4 | Time budget the receiving team has | Customer manager | Hours / week |
+| --- | --- | --- | --- |
+| 1 | Receiving roles, named individuals, and backup contacts | Customer delivery lead | Responsibility Assignment Matrix (RACI), org chart |
+| 2 | Skills baseline for each receiving role | Customer manager | Self-assessment, interview notes |
+| 3 | Training time budget and attendance expectations | Customer sponsor | Email, governance note |
+| 4 | Platform access needed for labs and walkthroughs | Customer platform team | Access request list |
+| 5 | Exit assessment sign-off authority | Customer sponsor | Governance note |
 
-## Document structure
+## Core plan structure
 
 <Steps>
-
-1. **Audience matrix** — for each receiving role (developer, SRE, data engineer, business analyst, RAI reviewer) note: current skill level, required end-state, sessions assigned.
-
-2. **Session catalogue** — typically 6–10 sessions, each with: title, duration, audience, prerequisites, learning objectives, hands-on exercise, owner, recorded yes/no.
-
-   Standard sessions for AI Apps:
-
-   - Architecture walkthrough
-   - Code repository tour & local dev setup
-   - Prompt repository & change control
-   - Eval harness — run it, read results, add a case
-   - Observability — Application Insights, KQL recipes
-   - Cost & capacity management (PTU vs. PAYG, quotas)
-   - Incident response — walk the runbook
-   - Responsible AI controls — content filters, abuse monitoring
-   - Disaster recovery drill
-
-3. **Hands-on labs** — for at least three sessions, include a lab the receiving team must complete on their own infrastructure.
-
-4. **Exit assessment** — each receiving individual confirms they can perform a defined set of tasks unsupervised. Sign-off captured.
-
-5. **Recording & artefact index** — every session recorded, indexed, and linked from the runbook.
-
-6. **Open-questions log** — questions raised during KT that you couldn't answer immediately, with owner and resolution date.
-
+1. **Audience matrix** — define each role, the required end-state capability, and the sessions they must attend.
+2. **Session catalogue** — list every session with owner, duration, prerequisites, learning objectives, and hands-on lab.
+3. **Role curriculum** — map Microsoft Learn paths and internal artefacts to each audience.
+4. **Hands-on validation** — specify the labs, simulations, or walkthroughs that prove the team can operate independently.
+5. **Exit assessment** — define the tasks each role must complete and who signs off competency.
+6. **Recording and artefact index** — every session recording, deck, runbook, and lab guide must be indexed in one place.
 </Steps>
+
+## Training Curriculum by Role
+
+| Role | Learning Path | URL | Duration |
+| --- | --- | --- | --- |
+| Developer | Develop AI agents using Azure AI Foundry | https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-azure-openai/ | ~6 hrs |
+| Developer | Build a RAG-based copilot solution with your own data using Azure AI Foundry | https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/ | ~4 hrs |
+| Developer | Develop generative AI solutions with Azure OpenAI Service | https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/ | ~5 hrs |
+| SRE / Ops | Monitor and troubleshoot AI workloads on Azure | https://learn.microsoft.com/en-us/training/paths/monitor-azure-resources/ | ~3 hrs |
+| SRE / Ops | Design and implement Azure AI Search | https://learn.microsoft.com/en-us/training/paths/design-implement-microsoft-azure-ai-search/ | ~4 hrs |
+| Data Engineer | Work with Azure AI Foundry | https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/ | ~4 hrs |
+| All | Responsible AI on Azure | https://learn.microsoft.com/en-us/training/paths/responsible-ai-business-principles/ | ~2 hrs |
+
+## Session catalogue template
+
+| Session | Audience | Duration | Delivery mode | Objectives | Required artefacts |
+| --- | --- | --- | --- | --- | --- |
+| Solution walkthrough | All receiving roles | 90 min | Workshop | Understand business context, target architecture, and support boundaries | Solution Architecture Design, architecture diagram |
+| Code and repository tour | Developers, platform engineers | 120 min | Pairing session | Build locally, run tests, understand branching and release flow | Repository README, CI/CD pipeline, environment guide |
+| Prompt and evaluation governance | Developers, product owner, Responsible AI reviewers | 90 min | Workshop | Manage prompt changes, run evaluations, interpret quality results | Prompt catalogue, evaluation runbook |
+| Operations and monitoring | SRE / Ops | 120 min | Hands-on lab | Use dashboards, alerts, KQL queries, and escalation flows | Runbook, dashboard links, alert catalogue |
+| Security and access model | Security lead, platform team | 60 min | Walkthrough | Review identities, networking, data controls, and break-glass procedures | Access matrix, key vault design, network diagram |
+| Go-live and incident drill | All operational roles | 120 min | Simulation | Practice incident handling, failover, rollback, and communication routines | Hypercare plan, incident runbook |
+
+## Exit assessment criteria
+
+| Role | Required demonstration | Evidence of completion | Sign-off by |
+| --- | --- | --- | --- |
+| Developer | Update a prompt, run the evaluation suite, and submit a change through CI/CD | Pull request, evaluation output, deployment record | Delivery lead |
+| SRE / Ops | Triage an alert, identify the likely cause, and execute the first-response procedure | Incident drill worksheet, dashboard screenshots | Service owner |
+| Data Engineer | Re-run or validate the grounding data pipeline and confirm index freshness | Pipeline log, index status, validation checklist | Platform lead |
+| Product or business owner | Explain the guardrails, escalation route, and acceptance criteria for future changes | Recorded walkthrough, sign-off form | Executive sponsor |
+
+## Exam preparation guidance
+
+| Certification | Why it matters in handover | Official page |
+| --- | --- | --- |
+| AI-102: Azure AI Engineer Associate | Validates Azure AI workload design, responsible AI controls, and service integration capability | https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/ |
+| AZ-204: Azure Developer Associate | Validates application integration, automation, and cloud development capability for the receiving engineering team | https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/ |
+
+- Ask each receiving engineer whether they already hold one of the target certifications and whether exam prep should be part of the post-project enablement plan.
+- Reuse the labs from the delivery project as certification preparation material so the customer learns in the context of their own solution.
+- Where the customer is forming a new AI platform team, recommend a 30-, 60-, and 90-day learning roadmap after hypercare.
 
 ## Output: customer-ready deliverable
 
-A completed KT plan with signed exit assessments per receiving individual, plus a searchable recording library handed over with the runbook.
+Deliver a signed Knowledge Transfer plan, a session and recording index, completed exit assessments, and a backlog of deferred knowledge gaps that still need customer action after project closure.
 
 <Aside type="tip" title="Download the workfile">
-[📄 KT plan template (.docx)](pathname:///templates/deliverables/kt-plan-template.docx)
-</Aside>
-
-## Reuse & contribute back
-
-<Aside type="tip">
-  Built a session lab that customers consistently call out, or a better exit assessment?
-  Open a PR against `src/content/docs/engagement/deliverables/kt-plan-template.mdx` with the `template` label.
+[📄 Knowledge Transfer plan template (.docx)](pathname:///templates/deliverables/kt-plan-template.docx)
 </Aside>

@@ -1,6 +1,6 @@
 ---
 title: "A.3.3 – Security & Privacy"
-description: Evidence requirements for control A.3.3 – information security policy, data protection practices, and GDPR/privacy compliance.
+description: Evidence requirements for control A.3.3 – information security policy, privacy controls, and staff security awareness.
 sidebar:
   label: "3.3 Security & Privacy"
   order: 7
@@ -10,93 +10,38 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-The auditor verifies that your organisation has **documented information security and data protection policies** in place, that staff are aware of them, and that they are actively maintained.
-
-**Typical questions:**
-- Is there a written information security policy?
-- How is customer data protected during and after engagements?
-- Is there a process for managing data breaches?
-- Is the organisation compliant with applicable data protection law (e.g., GDPR)?
-
----
+The auditor verifies that the partner protects customer and personal data through documented security and privacy controls. They also want to see that staff understand those controls and that there is a response path for incidents or breaches.
 
 ## Required Evidence Checklist
 
 | # | Evidence Item | Accepted Formats | Status |
-|---|---|---|---|
-| 1 | **Information Security Policy** | PDF, Word | ⬜ |
-| 2 | **Data Protection / Privacy Policy** | PDF, Word | ⬜ |
-| 3 | **Data Processing Agreement (DPA) template** used with customers | PDF, Word | ⬜ |
-| 4 | **Data Breach Response Procedure** | PDF, Word | ⬜ |
-| 5 | **Evidence of staff security awareness** (training records or communications) | PDF, Excel | ⬜ |
-| 6 | **ISO 27001 certificate** *(if applicable — fully satisfies this control)* | PDF | ⬜ |
+| --- | --- | --- | --- |
+| 1 | Information security policy | PDF, Word | ⬜ |
+| 2 | Data protection or privacy policy | PDF, Word | ⬜ |
+| 3 | Customer data processing agreement template | PDF, Word | ⬜ |
+| 4 | Data breach response procedure | PDF, Word | ⬜ |
+| 5 | Staff security awareness evidence | PDF, Excel | ⬜ |
+| 6 | ISO 27001 or SOC 2 certificate, if available | PDF | ⬜ |
 
-<Aside type="tip">
-  **ISO 27001** or **SOC 2 Type II** certification will fully satisfy this control. Submit the
-  certificate and a brief scope statement. No additional evidence is required.
-</Aside>
+## Quick Guidance
 
----
-
-## Evidence Guidance
-
-### Information Security Policy
-
-The policy should reference a recognised framework (NIST CSF, CIS Controls, ISO 27001, Cyber Essentials) and cover:
-
-- **Access control** — who can access what systems and data, and how
-- **Password and authentication standards** — MFA requirements, password complexity
-- **Device management** — BYOD policy, MDM, encryption requirements
-- **Data classification** — how data is categorised (Public, Internal, Confidential, Restricted)
-- **Incident response** — how security incidents are reported and escalated
-- **Third-party risk** — how supplier security is managed
-- **Review cadence** — policy reviewed at least annually
-
-### Data Protection Policy
-
-Covering:
-- Lawful basis for processing personal data
-- Data retention and deletion schedules
-- Subject access request (SAR) process
-- Cross-border data transfer controls (especially relevant for EU/UK organisations)
-- Privacy by design principles applied to customer solutions
-
-### Staff Awareness Evidence
-
-Options include:
-- Completion records from a security awareness training platform (KnowBe4, Proofpoint, Microsoft Defender Training, etc.)
-- Security briefing email sent to all staff with a read receipt or acknowledgement log
-- Annual security policy sign-off records
-
-### Data Breach Procedure
-
-Must cover:
-1. Detection and initial assessment
-2. Containment actions
-3. Notification to supervisory authority (e.g., ICO in UK, within 72 hours under GDPR)
-4. Notification to affected data subjects
-5. Post-incident review and corrective action
-
----
+- Lead with ISO 27001 or SOC 2 if you have it, then add the policy extracts that show scope.
+- Make sure the privacy policy explains retention, deletion, and cross-border processing expectations.
+- Show one place where staff acknowledge or complete annual security training.
+- Keep the breach procedure short but explicit about containment, notification, and post-incident review.
+- Use the same naming for data classifications here and in your engagement deliverables.
 
 ## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| Information Security Policy | | | ⬜ | |
-| Data Protection / Privacy Policy | | | ⬜ | |
-| DPA template | | | ⬜ | |
-| Data Breach Response Procedure | | | ⬜ | |
-| Staff training/awareness records | | | ⬜ | |
+| --- | --- | --- | --- | --- |
+| Information security policy |  |  | ⬜ |  |
+| Privacy policy |  |  | ⬜ |  |
+| Data processing agreement template |  |  | ⬜ |  |
+| Breach response procedure |  |  | ⬜ |  |
+| Staff awareness evidence |  |  | ⬜ |  |
+| ISO or SOC certificate if available |  |  | ⬜ |  |
 
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| Security policy is an old document never reviewed | Update the version number, add a new review date, and get it signed by a director |
-| No DPA template | Use Microsoft's standard DPA template or create a simple version with a legal advisor |
-| No staff training records | Run a 30-minute security awareness session and record attendance; use Microsoft Defender Training (free with M365) |
-| No data breach procedure | A one-page procedure covering the 5 steps above is sufficient for most auditors |
-| GDPR compliance not addressed | Add a GDPR section to the data protection policy; register with ICO (UK) if not already done |
+<Aside type="caution" title="Top gaps to avoid">
+  The most frequent gaps are stale policies with no visible review date and missing staff-awareness evidence that proves the documented policies are understood by the delivery organisation.
+</Aside>
