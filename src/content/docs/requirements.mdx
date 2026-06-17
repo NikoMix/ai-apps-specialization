@@ -8,127 +8,96 @@ sidebar:
 import { Aside, Steps } from '@astrojs/starlight/components';
 
 <Aside type="caution">
-  All four requirement categories below must be satisfied **before** requesting an audit. Review each
-  section carefully and confirm readiness with your Microsoft Partner Development Manager (PDM).
+  All four requirement categories below must be satisfied before requesting an audit. Review each section carefully and confirm readiness with your Microsoft Partner Development Manager (PDM).
 </Aside>
 
 ## Requirement 1 – Active Solutions Partner Designation
 
-Your organisation must hold an **active** Solutions Partner designation in at least one of the following:
+Your organisation must hold an active Solutions Partner designation in at least one of the following:
 
 | Designation | How to verify |
-|---|---|
-| Solutions Partner for **Data & AI (Azure)** | Partner Center → Overview → Membership |
-| Solutions Partner for **Digital & App Innovation (Azure)** | Partner Center → Overview → Membership |
+| --- | --- |
+| Solutions Partner for Data and AI (Azure) | Partner Center -> Overview -> Membership |
+| Solutions Partner for Digital and App Innovation (Azure) | Partner Center -> Overview -> Membership |
 
-> ✅ **Evidence needed:** Screenshot of active designation from Partner Center, or the Partner Center PDF report showing designation status.
+<Aside type="note">
+  **Evidence needed:** Screenshot of active designation from Partner Center, or the Partner Center PDF report showing designation status.
+</Aside>
 
----
+## Requirement 2 – Azure Consumed Revenue Performance
 
-## Requirement 2 – Azure Consumed Revenue (ACR) Performance
+Your organisation must demonstrate 15,000 USD of Azure Consumed Revenue in the last three months across each of the following pillars independently.
 
-Your organisation must demonstrate **$15,000 USD ACR in the last three months** across each of the following three pillars independently:
-
-### Pillar 1 – AI Services ($15,000 ACR)
-
-Revenue from **Microsoft Foundry and underlying AI services**, measured through:
+### Pillar 1 – AI Services
 
 - Rest of Azure AI
 - Azure OpenAI
 - 3P GPU
 
-### Pillar 2 – Application Platform ($15,000 ACR)
-
-Revenue from **Azure Application Platform services and GitHub products**, measured through:
+### Pillar 2 – Application Platform
 
 | Service Category | Included Services |
-|---|---|
-| App Platform Services | App Service, Logic Apps, APIM, Functions |
-| Container Services | AKS, ACA, ARO |
-| Serverless and Supporting App Services | Functions, Managed Redis |
-| Integration Services | APIM, Logic Apps |
-| Developer Services and Platform | GitHub products |
-| GitHub Copilot | GitHub Copilot |
+| --- | --- |
+| App platform services | App Service, Logic Apps, API Management, Functions |
+| Container services | Azure Kubernetes Service, Azure Container Apps, Azure Red Hat OpenShift |
+| Developer services and platform | GitHub products and GitHub Copilot |
 
-### Pillar 3 – Data Platform ($15,000 ACR)
+### Pillar 3 – Data Platform
 
-Revenue from **Azure Data Platform services**, measured through:
-
-| Strategic Pillar | Included Services |
-|---|---|
+| Strategic pillar | Included services |
+| --- | --- |
 | Modern DB | Cosmos DB, SQL DB Hyperscale |
-| MySQL and PostgreSQL PaaS | MySQL PaaS, PostgreSQL PaaS |
-| Azure SQL Core | Azure SQL Core |
+| MySQL and PostgreSQL PaaS | Azure Database for MySQL, Azure Database for PostgreSQL |
+| Azure SQL Core | Azure SQL Database |
 | Fabric F SKU | Microsoft Fabric F SKU |
 
-### Customer Diversity Requirement
-
-Your organisation must have **at least 3 unique customers** contributing to ACR in the last three months from the eligible strategic pillars above.
-
-**Eligible association types:**
-
-| Association Type | Abbreviation |
-|---|---|
-| Digital Partner of Record | DPOR |
-| Partner Admin Link | PAL |
-| Cloud Solution Provider | CSP |
-
-> ✅ **Evidence needed:** ACR reports from Partner Center → Insights → Azure Revenue. Export and annotate to show pillar breakdowns and unique customer counts.
-
----
+<Aside type="note">
+  **Evidence needed:** Partner Center exports annotated to show pillar totals and the unique customer count.
+</Aside>
 
 ## Requirement 3 – Certifications
 
-Your organisation must have **at least five individuals** pass the following certifications, with **each certification held by at least one individual**:
+Your organisation must have at least five individuals pass the required certifications, with each certification held by at least one individual.
 
 | Certification | Minimum holders | Exam code |
-|---|---|---|
+| --- | --- | --- |
 | Azure Developer Associate | 1 | AZ-204 |
 | DevOps Engineer Expert | 1 | AZ-400 |
 | Azure AI Engineer Associate | 1 | AI-102 |
 | Azure Cosmos DB Developer Specialty | 1 | DP-420 |
 
-<Aside type="tip">
-  One individual may hold multiple certifications. A team of four could satisfy all four certification
-  requirements, with one additional person holding any one of them again to reach the five-person minimum.
+<Aside type="note">
+  **Evidence needed:** Microsoft Learn transcripts or verification links for each individual, plus a mapping table showing name, certification, and expiry date.
 </Aside>
-
-> ✅ **Evidence needed:** Microsoft Learn transcripts or certification verification links for each individual. Prepare a mapping table (Name → Certification → Expiry Date).
-
----
 
 ## Requirement 4 – Third-Party Remote Audit
 
-Your organisation must **pass a third-party remote audit** conducted by a Microsoft-approved audit firm.
-
 <Steps>
-1. Confirm pre-qualification (Requirements 1–3 above are met)
-2. Request audit via Partner Center → Advanced Specializations
-3. Receive auditor assignment and kickoff call scheduling
-4. Submit evidence package to the auditor
-5. Complete the audit interview/review session
-6. Address any remediation findings (if required)
-7. Receive audit pass confirmation
+1. Confirm pre-qualification across the first three requirements.
+2. Request the audit through Partner Center.
+3. Receive the assigned auditor and complete the kickoff call.
+4. Submit the evidence package.
+5. Complete the review or interview.
+6. Address remediation findings if required.
+7. Receive the audit pass confirmation.
 </Steps>
 
-> ✅ **Evidence needed:** This entire repository constitutes your evidence preparation package. Use [Module A](../module-a/1-1-organizational-data/) and [Module B](../module-b/1-1-azure-ai-implementation/) pages for control-level evidence.
-
----
+<Aside type="note">
+  **Evidence needed:** This repository is the preparation pack. Use the Module A and Module B pages to collect control-level evidence.
+</Aside>
 
 ## Quick Readiness Checklist
 
-Use this table to confirm readiness before requesting the audit:
-
 | # | Requirement | Status |
-|---|---|---|
-| 1 | Active Solutions Partner designation (Data & AI or Digital & App Innovation) | ⬜ Not started / ✅ Ready |
-| 2a | $15,000 ACR – AI Services pillar (3-month trailing) | ⬜ Not started / ✅ Ready |
-| 2b | $15,000 ACR – App Platform pillar (3-month trailing) | ⬜ Not started / ✅ Ready |
-| 2c | $15,000 ACR – Data Platform pillar (3-month trailing) | ⬜ Not started / ✅ Ready |
-| 2d | ≥3 unique customers contributing ACR | ⬜ Not started / ✅ Ready |
-| 3a | Azure Developer Associate held by ≥1 individual | ⬜ Not started / ✅ Ready |
-| 3b | DevOps Engineer Expert held by ≥1 individual | ⬜ Not started / ✅ Ready |
-| 3c | Azure AI Engineer Associate held by ≥1 individual | ⬜ Not started / ✅ Ready |
-| 3d | Azure Cosmos DB Developer Specialty held by ≥1 individual | ⬜ Not started / ✅ Ready |
-| 3e | Total of ≥5 certified individuals | ⬜ Not started / ✅ Ready |
+| --- | --- | --- |
+| 1 | Active Solutions Partner designation | ⬜ Not started / ✅ Ready |
+| 2a | 15,000 USD Azure Consumed Revenue in AI services | ⬜ Not started / ✅ Ready |
+| 2b | 15,000 USD Azure Consumed Revenue in application platform | ⬜ Not started / ✅ Ready |
+| 2c | 15,000 USD Azure Consumed Revenue in data platform | ⬜ Not started / ✅ Ready |
+| 2d | At least three unique contributing customers | ⬜ Not started / ✅ Ready |
+| 3a | AZ-204 covered | ⬜ Not started / ✅ Ready |
+| 3b | AZ-400 covered | ⬜ Not started / ✅ Ready |
+| 3c | AI-102 covered | ⬜ Not started / ✅ Ready |
+| 3d | DP-420 covered | ⬜ Not started / ✅ Ready |
+| 3e | At least five certified individuals total | ⬜ Not started / ✅ Ready |
 | 4 | Audit requested and evidence package prepared | ⬜ Not started / ✅ Ready |

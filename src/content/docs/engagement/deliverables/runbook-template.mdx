@@ -15,8 +15,8 @@ Author during build and finalise before go-live. The runbook is what the on-call
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
-| 1 | Signed LLD | Previous step | PDF |
+| --- | --- | --- | --- |
+| 1 | Signed Detailed Technical Design | Previous step | PDF |
 | 2 | Customer on-call rota | Customer ops | Document |
 | 3 | Existing ticketing tool + queue | Customer ops | Text |
 | 4 | Existing incident severity matrix | Customer ops | Document |
@@ -26,7 +26,7 @@ Author during build and finalise before go-live. The runbook is what the on-call
 
 <Steps>
 
-1. **At-a-glance card** — one page: app name, owners, prod region(s), SLO, key dashboards, key alerts, escalation path.
+1. **At-a-glance card** — one page: app name, owners, prod region(s), Service Level Objective (SLO), key dashboards, key alerts, escalation path.
 
 2. **Architecture refresher** — diagram + 3-sentence narrative. No more.
 
@@ -35,7 +35,7 @@ Author during build and finalise before go-live. The runbook is what the on-call
    - Daily / weekly health checks
    - Backup verification
    - Cost review cadence
-   - Quota and capacity monitoring (Azure OpenAI tokens-per-minute, PTU usage)
+   - Quota and capacity monitoring (Azure OpenAI tokens-per-minute, Provisioned Throughput Units (PTU) usage)
 
 4. **Incident response per alert** — for every alert in Application Insights / Azure Monitor, a runbook entry with:
 
@@ -50,7 +50,7 @@ Author during build and finalise before go-live. The runbook is what the on-call
    - Azure OpenAI 429 / quota exhaustion → secondary deployment, rate-limit clients, request capacity increase
    - Content filter false positives → adjust policy, contact Microsoft support if persistent
    - Prompt injection signal in logs → triage with security, rotate exposed secrets if any
-   - RAG quality regression → re-run eval set, compare vs. last release, roll back prompt or index version
+   - Retrieval-Augmented Generation (RAG) quality regression → re-run eval set, compare vs. last release, roll back prompt or index version
    - Application Insights cost spike → check sampling, check log levels
 
 6. **Change control**
@@ -67,7 +67,7 @@ Author during build and finalise before go-live. The runbook is what the on-call
 
 ## Output: customer-ready deliverable
 
-A runbook stored alongside the application code (same repo), referenced from the LLD, and walked through interactively with customer ops during KT.
+A runbook stored alongside the application code (same repo), referenced from the Detailed Technical Design, and walked through interactively with customer ops during Knowledge Transfer (KT).
 
 <Aside type="tip" title="Download the workfile">
 [📄 Runbook template (.docx)](pathname:///templates/deliverables/runbook-template.docx)

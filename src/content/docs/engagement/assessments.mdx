@@ -1,0 +1,104 @@
+---
+title: "Microsoft Assessments"
+description: Mandatory and recommended Microsoft assessment tools to use during the engagement lifecycle.
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Why this page matters
+
+Microsoft assessments provide a defensible, repeatable way to baseline architecture, security, and AI workload readiness. Use them as formal engagement checkpoints and keep the exported outputs as audit evidence for Module B controls.
+
+## 1. Azure Architecture Review
+
+- **Assessment:** [Azure Architecture Review](https://learn.microsoft.com/en-us/assessments/azure-architecture-review/)
+- **When to run it:** Pre-design gate, ideally during late discovery or at the start of design.
+- **Module B mapping:** Supports B.1.1 Azure AI implementation capability, B.4.1 audit readiness, and the Well-Architected Framework evidence trail.
+
+### How to run it
+
+<Steps>
+1. Gather the current or target architecture diagram, key workloads, identity boundaries, and business criticality.
+2. Launch the assessment and complete it with the customer architect and delivery lead in the room.
+3. Review the findings by pillar and capture any mandatory design changes in the architecture backlog.
+4. Export or save the results for the engagement evidence pack.
+</Steps>
+
+### Outputs to save
+
+| Output | Why it matters |
+| --- | --- |
+| Assessment export or screenshot summary | Proves the assessment was run |
+| Action list by pillar | Shows how the findings became design work |
+| Updated architecture decision log | Proves traceability from finding to design outcome |
+
+## 2. Azure Well-Architected Review for AI Workloads
+
+- **Assessment:** [Azure Well-Architected Review for AI Workloads](https://learn.microsoft.com/en-us/assessments/f83b5836-2825-4259-8d96-daa3c70ff4c4/)
+- **When to run it:** During design, and again before go-live if the architecture changed materially.
+- **Module B mapping:** Supports B.1.1 Azure AI implementation capability and B.4.1 audit readiness.
+
+### How to run it
+
+<Steps>
+1. Baseline the target workload, non-functional requirements, security assumptions, and responsible-AI guardrails.
+2. Complete the review across reliability, security, cost optimisation, operational excellence, and performance efficiency.
+3. Record which findings must land in the Solution Architecture Design, Detailed Technical Design, runbook, or hypercare plan.
+4. Re-run or confirm the findings before go-live if model choices, hosting, or grounding changed.
+</Steps>
+
+### Outputs to save
+
+| Output | Why it matters |
+| --- | --- |
+| Assessment summary or export | Proves the workload was reviewed with the AI lens |
+| Prioritised remediation list | Shows ownership and action |
+| Updated design artefacts | Demonstrates that the findings changed the solution, not just a report |
+
+## 3. GitHub Copilot Adoption Assessment
+
+- **When to run it:** If the customer uses GitHub Copilot or plans to use it in the engineering workflow for the delivered solution.
+- **Module B mapping:** Supports B.4.2 partner onboarding and can strengthen the customer enablement story around engineering productivity and governance.
+
+### How to run it
+
+<Steps>
+1. Confirm whether the customer uses GitHub Copilot for solution development, operations, or knowledge management.
+2. Assess governance topics such as repository instructions, evaluation, code review, prompt hygiene, and secure use of generative AI in engineering.
+3. Capture any recommendations that should become onboarding actions, coding standards, or post-project roadmap items.
+</Steps>
+
+### Outputs to save
+
+| Output | Why it matters |
+| --- | --- |
+| Assessment findings or executive summary | Demonstrates structured enablement |
+| Recommendations backlog | Can feed the Knowledge Transfer and onboarding plans |
+| Governance updates | Shows practical adoption controls |
+
+## 4. Microsoft Security Score
+
+- **When to run it:** During discovery for baseline posture, and again before go-live if identity, access, or device requirements changed.
+- **Module B mapping:** Supports B.1.1 implementation capability and A.3.3 security and privacy by proving baseline security posture was considered.
+
+### How to run it
+
+<Steps>
+1. Review the customer's current score with the security lead and identify the control areas relevant to the delivered workload.
+2. Decide which findings are prerequisites for go-live versus roadmap items for the customer to own.
+3. Save the score snapshot and the recommended actions that directly affect the AI application.
+</Steps>
+
+### Outputs to save
+
+| Output | Why it matters |
+| --- | --- |
+| Security score snapshot | Baseline evidence |
+| Recommended actions list | Maps security posture to design or operations changes |
+| Ownership log | Clarifies partner versus customer responsibilities |
+
+<Aside type="tip">
+  Treat assessment outputs as formal project artefacts. Store them alongside the architecture pack, not in personal notes, so they can be reused for audits, design reviews, and future customer phases.
+</Aside>

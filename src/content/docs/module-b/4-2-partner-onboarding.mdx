@@ -1,6 +1,6 @@
 ---
 title: "B.4.2 – Partner Onboarding Assets"
-description: Evidence requirements for control B.4.2 – partner-to-customer onboarding materials, delivery templates, and enablement assets.
+description: Evidence requirements for control B.4.2 – customer onboarding packs, delivery templates, and operational enablement assets for AI applications on Microsoft Azure.
 sidebar:
   label: "4.2 Partner Onboarding"
   order: 6
@@ -10,109 +10,63 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## What the Auditor Checks
 
-The auditor verifies that your organisation has **structured onboarding assets and delivery templates** for the AI on Azure services you sell and deliver — demonstrating that you enable customers systematically, not just reactively.
+The auditor verifies that your organisation can onboard customers into AI workloads in a structured way and leave them able to operate the solution. That means more than a slide deck: they want repeatable templates, operational guides, and enablement material.
 
-**Typical questions:**
-- What onboarding materials do you provide to new customers?
-- Do you have standard templates for AI solution delivery?
-- How do you ensure customers can operate AI solutions independently after handover?
-
----
+A strong package shows a standard engagement kit covering discovery, design, delivery cadence, operational readiness, Knowledge Transfer, and post-go-live support.
 
 ## Required Evidence Checklist
 
 | # | Evidence Item | Accepted Formats | Status |
-|---|---|---|---|
-| 1 | **Customer onboarding pack / welcome kit** | PDF, PowerPoint | ⬜ |
-| 2 | **Solution delivery templates** (at least 2 from list below) | PDF, Word, PowerPoint | ⬜ |
-| 3 | **Knowledge transfer plan or template** | PDF, Word | ⬜ |
-| 4 | **Customer-facing runbook or operational guide** (anonymised) | PDF, Word | ⬜ |
-| 5 | **Training materials** provided to customer staff *(if applicable)* | PDF, PowerPoint | ⬜ |
+| --- | --- | --- | --- |
+| 1 | Customer onboarding pack or welcome kit | PDF, PowerPoint | ⬜ |
+| 2 | At least two reusable delivery templates used in AI engagements | PDF, Word, PowerPoint | ⬜ |
+| 3 | Knowledge Transfer plan template | PDF, Word | ⬜ |
+| 4 | Customer-facing runbook or operational guide, anonymised if needed | PDF, Word | ⬜ |
+| 5 | Training materials or recording index used during handover | PDF, PowerPoint | ⬜ |
 
----
+## Implementation Guidance
 
-## Evidence Guidance
+### Design the onboarding pack
 
-### Customer Onboarding Pack
+- Explain who the customer team will work with, what the delivery cadence looks like, and what approvals are expected.
+- Document environment standards such as naming, tagging, access, data classification, and release management.
+- Include support boundaries so the customer knows what changes remain in-scope after go-live.
 
-The onboarding pack should include or cover:
+### Create reusable delivery assets
 
-- **Introduction to your organisation** — team structure, key contacts, escalation path
-- **Engagement overview** — scope, timeline, milestones, deliverables
-- **Communication cadence** — meeting frequency, reporting format, tools used
-- **Azure environment standards** — naming conventions, tagging policies, governance baseline
-- **Support model** — how ongoing support works post-go-live
-- **Key contacts** — project lead, technical lead, Azure support paths
+- Maintain templates for architecture, sprint reporting, testing, go-live, and operational handover.
+- Keep customer-specific content out of the template master so the asset remains reusable for audit evidence.
+- Show how onboarding templates connect to the runbook, project plan, and Knowledge Transfer plan.
 
-### Delivery Templates
+### Prove operational enablement
 
-Provide templates from at least two of the following categories:
+- Include runbooks, dashboard links, escalation paths, and role-based training material in the handover package.
+- Use a sign-off or exit assessment to prove the receiving team can operate the workload.
+- Track recordings and supporting artefacts in one indexed handover location.
 
-| Category | Example Template |
-|---|---|
-| Discovery | Requirements questionnaire, stakeholder map, Azure readiness assessment |
-| Design | High-Level Design (HLD) template, Azure architecture decision record (ADR) |
-| Build | Sprint planning template, Definition of Done checklist, CI/CD pipeline template |
-| Test | UAT test plan template, performance test report template |
-| Deploy | Go-live checklist, hypercare plan template, rollback procedure |
-| Handover | Closure report template, knowledge transfer agenda, support handover checklist |
+## Resources
 
-### Knowledge Transfer Plan
+- [Azure landing zone guidance](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Azure Well-Architected operational excellence guidance](https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/)
+- [Azure Architecture Center AI and machine learning](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
 
-A knowledge transfer plan should cover:
+## Samples
 
-| Item | Details |
-|---|---|
-| **Scope** | What the customer needs to know to operate independently |
-| **Format** | Documentation, hands-on workshops, recorded sessions |
-| **Recipients** | Customer IT team, developers, business users |
-| **Timeline** | Integrated into the final delivery phase |
-| **Validation** | How you confirm the customer can operate the solution |
-
-### Runbook / Operational Guide
-
-An operational guide (anonymised) for an AI solution on Azure should include:
-- Solution architecture overview
-- Day-to-day operational tasks
-- Monitoring and alerting setup (Azure Monitor, Application Insights)
-- Common issues and resolutions
-- Escalation contacts (Microsoft Support, your support team)
-- Cost management guidance
-
----
-
-## Sample Onboarding Timeline
-
-| Week | Activity | Deliverable |
-|---|---|---|
-| 0 | Kickoff and environment access | Kickoff deck, environment setup guide |
-| 1 | Discovery workshops | Requirements document, stakeholder map |
-| 2–3 | Architecture review and design sign-off | HLD, ADRs |
-| 4–N | Build and sprint reviews | Sprint reports, demo recordings |
-| N-2 | UAT and knowledge transfer | UAT test plan, training sessions |
-| N-1 | Go-live preparation | Go-live checklist, runbook |
-| N | Go-live and hypercare | Hypercare log, daily stand-up |
-| N+2 | Closure and handover | Closure report, support SLA |
-
----
+- [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [Azure-Samples/contoso-chat](https://github.com/Azure-Samples/contoso-chat)
+- [Azure-Samples/rag-postgres-openai-python](https://github.com/Azure-Samples/rag-postgres-openai-python)
 
 ## Evidence Status
 
 | Evidence Item | Owner | Due Date | Status | Notes |
-|---|---|---|---|---|
-| Customer onboarding pack | | | ⬜ | |
-| Delivery template 1 | | | ⬜ | |
-| Delivery template 2 | | | ⬜ | |
-| Knowledge transfer plan | | | ⬜ | |
-| Customer runbook (anonymised) | | | ⬜ | |
+| --- | --- | --- | --- | --- |
+| Onboarding pack |  |  | ⬜ |  |
+| Delivery template 1 |  |  | ⬜ |  |
+| Delivery template 2 |  |  | ⬜ |  |
+| Knowledge Transfer template |  |  | ⬜ |  |
+| Runbook or operations guide |  |  | ⬜ |  |
+| Training material or recording index |  |  | ⬜ |  |
 
----
-
-## Common Gaps
-
-| Gap | Remediation |
-|---|---|
-| No formal onboarding pack | Create a branded PowerPoint with the sections listed above — 10 slides is sufficient |
-| Templates exist but are customer-specific | Generalise one customer's artefacts into a reusable template |
-| Knowledge transfer is verbal only | Create a one-page KT plan template; even a checklist format is accepted |
-| Runbook not documented | Export Azure Monitor dashboards and create a 5–10 page operational summary |
+<Aside type="tip">
+  The best onboarding evidence is internally consistent: the project plan, architecture templates, runbook, and Knowledge Transfer plan should look like parts of one delivery system, not unrelated documents.
+</Aside>

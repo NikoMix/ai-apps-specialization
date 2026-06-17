@@ -17,9 +17,9 @@ A qualified AI Apps customer has: a sponsoring exec, a budget line, at least one
 ## Inputs you need from the customer
 
 | # | Input | Source | Format |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | Executive sponsor name and role | Customer | Text |
-| 2 | Budget range for the first engagement | Customer (or PDM hint) | Numeric range |
+| 2 | Budget range for the first engagement | Customer (or Partner Development Manager (PDM) hint) | Numeric range |
 | 3 | Named AI use case(s) | Customer | Free text |
 | 4 | Azure tenant + subscription state | Customer / Azure portal | Boolean |
 | 5 | Data sources the AI app will use | Customer | List |
@@ -58,7 +58,7 @@ A qualified AI Apps customer has: a sponsoring exec, a budget line, at least one
 
 ### Section 3 — Use case shape
 
-- Is this a RAG / grounded-answer scenario, an agentic workflow, content generation, or a classification / extraction task?
+- Is this a Retrieval-Augmented Generation (RAG) / grounded-answer scenario, an agentic workflow, content generation, or a classification / extraction task?
 - Single-tenant internal app, multi-tenant SaaS, or customer-facing public endpoint?
 - Synchronous (chat / API) or asynchronous (batch) workload?
 

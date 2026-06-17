@@ -1,0 +1,90 @@
+---
+title: "Resources and Samples"
+description: Curated Azure architecture, Microsoft Learn, and GitHub sample resources for AI Applications on Microsoft Azure engagements.
+sidebar:
+  order: 8
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Azure Architecture Center Resources
+
+### RAG pattern architectures
+
+- [AI and machine learning architecture center hub](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+- [Azure OpenAI architecture patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/openai/)
+- [Retrieval-Augmented Generation solution design and evaluation guide](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+- [Vector search and grounding guidance with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search)
+
+### Agentic workflow architectures
+
+- [Agentic architectures overview](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/agentic-architectures-overview)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/)
+
+### Analytics copilot architectures
+
+- [Azure AI + analytics architecture patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+- [Microsoft Fabric architecture guidance](https://learn.microsoft.com/en-us/fabric/)
+- [Azure Databricks architecture center](https://learn.microsoft.com/en-us/azure/databricks/)
+
+### AI safety and responsible AI patterns
+
+- [Responsible AI guidance for Azure AI services](https://learn.microsoft.com/en-us/azure/ai-services/responsible-use-of-ai-overview)
+- [Azure Well-Architected Framework for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/)
+- [Microsoft responsible AI resources](https://www.microsoft.com/en-us/ai/responsible-ai)
+
+### Integration patterns
+
+- [API Management documentation](https://learn.microsoft.com/en-us/azure/api-management/)
+- [Azure Container Apps documentation](https://learn.microsoft.com/en-us/azure/container-apps/)
+- [Azure Front Door documentation](https://learn.microsoft.com/en-us/azure/frontdoor/)
+
+## Microsoft GitHub Samples
+
+### RAG samples
+
+- [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [Azure-Samples/rag-postgres-openai-python](https://github.com/Azure-Samples/rag-postgres-openai-python)
+- [Azure-Samples/openai](https://github.com/Azure-Samples/openai)
+
+### Agentic samples
+
+- [Azure-Samples/contoso-chat](https://github.com/Azure-Samples/contoso-chat)
+- [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel)
+- [microsoft/autogen](https://github.com/microsoft/autogen)
+
+### Evaluation and testing samples
+
+- [Azure AI Foundry evaluations documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app)
+- [microsoft/promptflow](https://github.com/microsoft/promptflow)
+- [Azure-Samples/ai-rag-chat-evaluator](https://github.com/Azure-Samples/ai-rag-chat-evaluator)
+
+### Infrastructure as Code samples
+
+- [Azure-Samples/aks-baseline-automation](https://github.com/Azure-Samples/aks-baseline-automation)
+- [Azure-Samples/container-apps-openai](https://github.com/Azure-Samples/container-apps-openai)
+- [Azure/terraform-azurerm-avm-res-ai-services-account](https://github.com/Azure/terraform-azurerm-avm-res-ai-services-account)
+
+### Baseline architectures
+
+- [Azure-Samples/aks-baseline](https://github.com/Azure-Samples/aks-baseline)
+- [Azure-Samples/app-service-baseline](https://github.com/Azure-Samples/app-service-baseline)
+- [microsoft/finops-toolkit](https://github.com/microsoft/finops-toolkit)
+
+## Microsoft Learn Resources
+
+<CardGrid>
+  <Card title="Azure AI Foundry learning path" href="https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/">
+    Use for Foundry-based copilots, prompt flow, and evaluation enablement.
+  </Card>
+  <Card title="Develop AI solutions with Azure OpenAI" href="https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/">
+    Use for delivery team enablement on Azure OpenAI patterns and controls.
+  </Card>
+  <Card title="Design and implement Azure AI Search" href="https://learn.microsoft.com/en-us/training/paths/design-implement-microsoft-azure-ai-search/">
+    Use for grounding, indexing, relevance tuning, and search governance.
+  </Card>
+  <Card title="Responsible AI principles" href="https://learn.microsoft.com/en-us/training/paths/responsible-ai-business-principles/">
+    Use for stakeholder education and responsible AI governance.
+  </Card>
+</CardGrid>
